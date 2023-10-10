@@ -12,14 +12,15 @@ export class UsersService {
 
 
   public getRequest(): Observable<any> {
-    return this.http.get('/usuarios');
+    return this.http.get('/api/users');
   }
 
   public postRequest(body: any): Observable<any> {
+    console.log(body)
     let headers = new HttpHeaders({
       'content-type': 'application/json',
     })
-    return this.http.post('/usuarios/agregar', body, { 'headers': headers });
+    return this.http.post('api/create', body, { 'headers': headers });
   }
 }
 

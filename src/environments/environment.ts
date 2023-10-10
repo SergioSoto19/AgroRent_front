@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   api_url: 'http://localhost:3000',
   // api_imagenes: ' https://wtc7hiffe5.execute-api.us-east-2.amazonaws.com/dev/imagenes',
-  api_authorizer: ''
+  // api_authorizer: ''
 };
 
 /*
