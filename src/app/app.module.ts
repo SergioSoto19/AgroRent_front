@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { UserListComponent } from './components/user-list/user-list.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { MachineryListComponent } from './components/machinery-list/machinery-list.component';
 
 @NgModule({
   
@@ -20,7 +21,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     LoginComponent,
     HomeComponent,
     SignInComponent,
-    UserListComponent
+    UserListComponent,
+    MachineryListComponent
   ],
 
   imports: [

@@ -1,0 +1,284 @@
+<body>
+
+
+
+    <div class="wrapper">
+
+        <aside id="sidebar">
+            <!--content for sidebar   -->
+            <div class="h-100">
+                <div class="sidebar-logo">
+                    <a href="/home">AgroRent</a>
+                </div>
+
+                <ul class="sidebar-nav">
+
+                    <li class="sidebar-item">
+                        <a routerLink="/home" class="sidebar-link">
+                            <i class="fa-solid fa-house pe-2"></i>
+                            Home
+                        </a>
+                    </li>
+
+                    
+                    <li class="sidebar-item">
+                        <a routerLink="/listUser" class="sidebar-link">
+                            <i class="fa-solid fa-users pe-2"></i>
+                           Usuarios
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a routerLink="/home" class="sidebar-link">
+                            <i class="fa-solid fa-train-subway pe-2"></i>
+                            Maquinarias
+                        </a>
+                    </li>
+
+                    
+
+                    <!-- reservas -->
+                    <li class="sidebar-item">
+
+                        <a class="sidebar-link collapsed" data-bs-target="#reservas"
+                            data-bs-toggle="collapse" aria-expanded="false">
+
+                            <i class="fa-solid fa-clipboard-list pe-2"></i>
+                            Reservas
+                        </a>
+
+                        <ul id="reservas" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">solicitudes</a>
+                            </li>
+
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">solicitudes a mi </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- multas -->
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#multas" data-bs-toggle="collapse"
+                            aria-expanded="false">
+                            <i class="fa-solid fa-file pe-2 "></i>
+                            Multas
+                        </a>
+
+                        <ul id="multas" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">mis multas</a>
+                            </li>
+
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">me deben </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- contenido  -->
+        <div class="main">
+            <nav class="navbar navbar-expand px-3 border-bottom">
+
+                <button type="button" class="btn" id="menu-lateral-aparicion">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                <div class="navbar-collapse navbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-icon pe-md-0" data-bs-toggle="dropdown">
+                                <img src="/assets/image/login.jpg" class="user img-fluid rounded"
+                                    alt="imagen de usuario">
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a href="#" class="dropdown-item">Perfil</a>
+                                <a href="#" class="dropdown-item">configuraciones</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+
+
+            <div>
+
+                <!--  -->
+
+                <div class="contenido de tabla usuarios ">
+                    <!-- <app-progress-bar> </app-progress-bar>  -->
+                    <div class="contenido">
+                        <br>
+                        <h3 class="d-flex justify-content-center">Maquinarias</h3>
+                        <br>
+                        <br>
+
+                        <div class="row g-3 mt-3">
+                            <!--
+                            <div class="col-sm-12 col-md-6 col-lg-3">
+                                <div class="input-group mb-3 ">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="inputGroupSelect01">Mostrar</label>
+                                    </div>
+                                    <select class="custom-select" id="inputGroupSelect01" #valorMostrar
+                                        (change)="cambiarPaginacion('mostrar',valorMostrar.value)">
+                                        <option value="5" selected>5</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                    </select>
+                                </div>
+            
+                            </div>
+ 
+                            <div class="col-sm-12 col-md-6 col-lg-3">
+
+                                <div class="input-group mb-3">
+            
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="inputGroupSelect01">Ordenar por</label>
+                                    </div>
+            
+                                    <select class="custom-select" id="inputGroupSelect01" #valorColumna
+                                        (change)="cambiarPaginacion('columna',valorColumna.value) ">
+                                        <option value="codigo" selected>Codigo</option>
+                                        <option value="nombre">Nombre</option>
+                                        <option value="apellido">Apellido</option>
+                                        <option value="tipo_documento">Tipo de Documento</option>
+                                        <option value="numero_documento">Numero de Documento</option>
+                                        <option value="estado">Estado</option>
+                                        <option value="genero">Genero</option>
+                                    </select>
+                                </div>
+            
+            
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-3">
+                                <div class="input-group mb-3">
+            
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="inputGroupSelect01">Tipo de ordenamiento</label>
+                                    </div>
+            
+                                    <select class="custom-select" id="inputGroupSelect01" #valorOrdenamiento
+                                        (change)="cambiarPaginacion('ordenamiento',valorOrdenamiento.value)">
+                                        <option value="Ascendente" selected>Ascendente</option>
+                                        <option value="Descendente">Descendente</option>
+                                    </select>
+                                </div>
+            
+                            </div>
+            
+                            <div class="col-sm-12 col-md-6 col-lg-3">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend bg-light">
+                                        <span class="input-group-text" id="basic-addon1">Busqueda</span>
+                                    </div>
+                                    <input #busqueda type="text" class="form-control" placeholder="..." aria-label="Username"
+                                        aria-describedby="basic-addon1">
+                                    <button (click)="cambiarPaginacion('busqueda',busqueda.value)">Buscar</button>
+                                </div>
+                            </div>
+                         -->
+                            <div class="col-12">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th scope="col">Imagen</th>
+                                                <th scope="col">Tipo de documento</th>
+                                                <th scope="col">Numero de documeto</th>
+                                                <th scope="col">Nombre</th>
+                                                <th scope="col">Apellido</th>
+                                                <th scope="col">Username</th>
+                                                <th scope="col">Numero de celular</th>
+                                                <th scope="col">Correo electronico</th>
+                                                <th scope="col">tipo de usuario</th>
+                                                <th scope="col">Estado</th>
+
+                                                <th scope="col">Editar</th>
+                                                <th scope="col">Inabilitar</th>
+                                            </tr>
+                                        </thead>
+            
+                                        <tbody>
+                                            <!-- <tr *ngFor="let student of res" (click)="selectStudent (student)"> -->
+                                            <tr
+                                                *ngFor="let estudiante of res | paginate: {itemsPerPage:itemsPerPage, currentPage:paginaActual}; let i =index">
+                                                
+                                                <!-- <th scope="row">{{estudiante.codigo}}</th> -->
+            
+                                                <td>
+                                                    <div class="image-cropper">
+            
+                                                        <!-- <img src="/assets/image/welcom.jpg" class="img-fluid rounded" alt="imagen de usuario"> -->
+                                                        
+                                                        <!-- <img [src]="estudiante.pathPresigned?estudiante.pathPresigned:''" alt="" width="150" height="150"> -->
+                                                        <img [src]="estudiante.pathPresigned || '/assets/image/perfil-de-usuario.webp'" alt="Imagen" width="150" height="150">
+                                                    </div>
+                                                </td>
+            
+                                                <td>{{estudiante.tipo_documento}}</td>
+                                                <td>{{estudiante.documento_usuario}}</td>
+                                                <td>{{estudiante.nombre_usuario}}</td>
+                                                <td>{{estudiante.apellido_usuario}}</td>
+                                                <td>{{estudiante.nombre_user}}</td>
+                                                <td>{{estudiante. numero_celu_usuario}}</td>
+                                                <td>{{estudiante.correo_usuario}}</td>
+                                                <td>{{estudiante.tipo_usuario}}</td>
+                                                <td>{{estudiante.estado_usuario}}</td>
+                                                
+
+                                                <td>
+                                                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" 
+                                                    data-bs-target="#modificar-estudiante">Editar</button>
+                                                </td>
+                                                <td>
+                                                 <button type="button" class="btn btn-danger" >Inabilitar</button> 
+                                                </td>
+                                            </tr>
+                                        </tbody>
+            
+                                    </table>
+                                </div>
+                            </div>
+            
+                            <div class="col-12">
+                                <div class="pagination">
+                                    <div class="">Pagina {{paginaActual}} de {{totalPaginas}}</div>
+                                    <div class=" "><pagination-controls (pageChange)="paginaActual = $event"
+                                            [responsive]="true"></pagination-controls>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+            </div>
+
+        </div>
+    </div>
+</body>
