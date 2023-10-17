@@ -3,4 +3,10 @@
         "target": "http://localhost:3000",
         "secure": false
     }
+    ,"/maquinaria/*": {
+        "target": "http://localhost:3000",
+        "secure": false
+    }
+
+
 }
