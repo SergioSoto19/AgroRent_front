@@ -10,6 +10,8 @@ import { FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {  HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { UserListComponent } from './components/user-list/user-list.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   
@@ -17,7 +19,8 @@ import { ToastrModule } from 'ngx-toastr';
     AppComponent,
     LoginComponent,
     HomeComponent,
-    SignInComponent
+    SignInComponent,
+    UserListComponent
   ],
 
   imports: [
@@ -26,8 +29,10 @@ import { ToastrModule } from 'ngx-toastr';
     FormsModule, 
     ReactiveFormsModule,
     HttpClientModule,
+    NgxPaginationModule,
     BrowserAnimationsModule, 
     ToastrModule.forRoot({})
+    
   ],
 
   providers: [],

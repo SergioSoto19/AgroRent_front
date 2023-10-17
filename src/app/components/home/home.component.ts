@@ -10,6 +10,10 @@ export class HomeComponent {
   constructor() { }
 
   ngOnInit(): void {
+
+
+    
+
     const sidebarToggle = document.getElementById("menu-lateral-aparicion");
     if (sidebarToggle) {
       sidebarToggle.addEventListener("click", () => {
@@ -20,6 +24,7 @@ export class HomeComponent {
         }
       });
     }
+    
   }
 
 
