@@ -205,17 +205,13 @@
                                     <table class="table table-hover">
                                         <thead class="table-dark">
                                             <tr>
+                                                <th scope="col">id maquinaria</th>
                                                 <th scope="col">Imagen</th>
-                                                <th scope="col">Tipo de documento</th>
-                                                <th scope="col">Numero de documeto</th>
-                                                <th scope="col">Nombre</th>
-                                                <th scope="col">Apellido</th>
-                                                <th scope="col">Username</th>
-                                                <th scope="col">Numero de celular</th>
-                                                <th scope="col">Correo electronico</th>
-                                                <th scope="col">tipo de usuario</th>
-                                                <th scope="col">Estado</th>
-
+                                                <th scope="col">Nombre de la maquina</th>
+                                                <th scope="col">dueño</th>
+                                                <th scope="col">descripcion</th>
+                                                <th scope="col">modelo </th>
+                                                <th scope="col">precio (hora) </th>
                                                 <th scope="col">Editar</th>
                                                 <th scope="col">Inabilitar</th>
                                             </tr>
@@ -227,26 +223,26 @@
                                                 *ngFor="let estudiante of res | paginate: {itemsPerPage:itemsPerPage, currentPage:paginaActual}; let i =index">
                                                 
                                                 <!-- <th scope="row">{{estudiante.codigo}}</th> -->
-            
+                                                
+                                                <td>{{estudiante.id_maquinaria}}</td>
+
                                                 <td>
                                                     <div class="image-cropper">
             
                                                         <!-- <img src="/assets/image/welcom.jpg" class="img-fluid rounded" alt="imagen de usuario"> -->
                                                         
                                                         <!-- <img [src]="estudiante.pathPresigned?estudiante.pathPresigned:''" alt="" width="150" height="150"> -->
-                                                        <img [src]="estudiante.pathPresigned || '/assets/image/perfil-de-usuario.webp'" alt="Imagen" width="150" height="150">
+                                                        <img [src]="estudiante.pathPresigned || '/assets/image/maquinaria.jpg'" alt="Imagen" width="50" height="50">
                                                     </div>
                                                 </td>
             
-                                                <td>{{estudiante.tipo_documento}}</td>
-                                                <td>{{estudiante.documento_usuario}}</td>
-                                                <td>{{estudiante.nombre_usuario}}</td>
-                                                <td>{{estudiante.apellido_usuario}}</td>
-                                                <td>{{estudiante.nombre_user}}</td>
-                                                <td>{{estudiante. numero_celu_usuario}}</td>
-                                                <td>{{estudiante.correo_usuario}}</td>
-                                                <td>{{estudiante.tipo_usuario}}</td>
-                                                <td>{{estudiante.estado_usuario}}</td>
+                                               
+                                                <td>{{estudiante.nombre_maquina}}</td>
+                                                <td>{{estudiante.id_usuario}}</td>
+                                                <td>{{estudiante.descripcion_maquina}}</td>
+                                                <td>{{estudiante.modelo_maquina}}</td>
+                                                <td>{{estudiante. precio_hora}}</td>
+                                           
                                                 
 
                                                 <td>
