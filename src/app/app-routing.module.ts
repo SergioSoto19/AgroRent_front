@@ -4,6 +4,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import {UserListComponent } from './components/user-list/user-list.component';
+import {MachineryListComponent} from './components/machinery-list/machinery-list.component';
 
 
 const routes: Routes = [
@@ -11,8 +12,10 @@ const routes: Routes = [
   {path:'signIn',component:SignInComponent},
   {path:'home',component:HomeComponent},
   {path:'listUser',component:UserListComponent},
+  {path:'maquinaria',component:MachineryListComponent},
   {path:'',redirectTo:'login',pathMatch:'full'},
   {path:'**',redirectTo:'login',pathMatch:'full'}
+
 
   
 
