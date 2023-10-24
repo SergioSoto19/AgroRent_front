@@ -1,0 +1,151 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+
+ // align-items: stretch;
+  //display: flex;
+  //width: 100%;
+  //min-height:10vh;
+
+}
+/*
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    
+  }
+*/
+  .container {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+
+    
+    height: 100%;
+  width: 100%;
+}
+
+
+.input-field{
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      padding: 0 10px 0 10px;
+      z-index: 12;
+  }
+
+  .input {
+    height: 45px;
+    width: 100%;
+    color: #40414a;
+    padding: 0.30px;
+    background: transparent;
+    border: 1.2px solid #fff;
+    //border-bottom: 1px solid rgba(232, 227, 227, 0.2);
+    margin-bottom: 20px;
+    //border: none;
+    outline: none;
+    border-radius: 5px;
+ 
+ 
+  }
+  
+  
+    .input-box .input-field label{
+        position: absolute;
+        top: 11px;
+        left: 18px;
+        pointer-events: none;
+        transition: .5s;
+        
+    }
+  
+
+
+    .input-field input:focus ~ label
+       {
+        top: -10px;
+        font-size: 13px;
+       background: yellow;
+      }
+
+      
+      .input-field input:valid ~ label
+      {
+       top: -10px;
+       font-size: 13px;
+       color: #0ff0b0;
+     }
+   
+     /*
+  .input-field .input:focus, .input-field .input:valid {
+    border-bottom: 1px solid #743ae1;
+  }*/
+
+
+
+
+  
+//formulario 
+
+
+
+.group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 0 10px 0 10px;
+
+}
+
+.ctom-imput{
+  height: 40px;
+  width: 100%;
+  color: #0a0a0a;
+  padding: 10.10px;
+  background: transparent;
+  border: 1.2px solid rgba(135, 133, 133, 0.5); /* Color semi-transparente */
+  //border-bottom: 1px solid rgba(232, 227, 227, 0.2);
+  // margin-bottom: 20px;
+  //border: none;
+  outline: none;
+  border-radius: 5px;
+  
+}
+
+
+.group label {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  pointer-events: none;
+  transition: .5s;
+  color: rgba(37, 37, 37, 0.5); /* Color de texto semi-transparente */
+}
+
+
+
+.group input:focus~label {
+  top: -10px;
+  font-size: 13px;
+  background: #fff
+}
+
+
+
+.group input:valid~label {
+  top: -10px;
+  font-size: 13px;
+  background: #fff
+}

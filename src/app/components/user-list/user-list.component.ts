@@ -10,92 +10,92 @@ import { UsersService } from 'src/app/services/users.service';
 export class UserListComponent {
 
   res: any = []
-/*
-  res: any = [
+  /*
+    res: any = [
+      {
+        nombre_user: "jose.romero104",
+        nombre_usuario: "alexander",
+        apellido_usuario: "romero",
+        tipo_documento: "CC",
+        documento_usuario: "1003",
+        numero_celu_usuario: "3146582640",
+        correo_usuario: "jose.romero050",
+        tipo_usuario: "A",
+        estado_usuario: "A"
+    },
     {
-      nombre_user: "jose.romero104",
+      nombre_user: "jose.romero07",
       nombre_usuario: "alexander",
       apellido_usuario: "romero",
       tipo_documento: "CC",
-      documento_usuario: "1003",
+      documento_usuario: "100345521",
       numero_celu_usuario: "3146582640",
-      correo_usuario: "jose.romero050",
+      correo_usuario: "jose.romero07@uptc.edu.co",
       tipo_usuario: "A",
-      estado_usuario: "A"
+      estado_usuari: "A"
   },
+  
   {
-    nombre_user: "jose.romero07",
+    nombre_user: "felipe14",
     nombre_usuario: "alexander",
     apellido_usuario: "romero",
     tipo_documento: "CC",
-    documento_usuario: "100345521",
+    documento_usuario: "1003912861",
     numero_celu_usuario: "3146582640",
-    correo_usuario: "jose.romero07@uptc.edu.co",
+    correo_usuario: "fogajo9682@ibtrades.com",
     tipo_usuario: "A",
-    estado_usuari: "A"
-},
-
-{
-  nombre_user: "felipe14",
-  nombre_usuario: "alexander",
-  apellido_usuario: "romero",
-  tipo_documento: "CC",
-  documento_usuario: "1003912861",
-  numero_celu_usuario: "3146582640",
-  correo_usuario: "fogajo9682@ibtrades.com",
-  tipo_usuario: "A",
-  estado_usuario: "A"
-},
-
-{
-  nombre_user: "felipe14fdf",
-  nombre_usuario: "alexander",
-  apellido_usuario: "romero",
-  tipo_documento: "CC",
-  documento_usuario: "1003912861554",
-  numero_celu_usuario: "3146582640",
-  correo_usuario: "fogajo96ffd82@ibtrades.com",
-  tipo_usuario: "A",
-  estado_usuario: "A"
-},
-
-{
-  nombre_user: "felipe1fdsedf",
-  nombre_usuario: "alexander",
-  apellido_usuario: "romero",
-  tipo_documento: "CC",
-  documento_usuario: "100391554",
-  numero_celu_usuario: "3146582640",
-  correo_usuario: "fogajo92@ibtrades.com",
-  tipo_usuario: "A",
-  estado_usuario: "A"
-},
-
-{
-  nombre_user: "felipe1fd5554",
-  nombre_usuario: "alexander",
-  apellido_usuario: "romero",
-  tipo_documento: "CC",
-  documento_usuario: "1003915542201",
-  numero_celu_usuario: "3146582640",
-  correo_usuario: "fogajo955dds2@ibtrades.com",
-  tipo_usuario: "A",
-  estado_usuario: "A"
-},
-{
-  nombre_user: "felipe1fddsd54",
-  nombre_usuario: "alexander",
-  apellido_usuario: "romero",
-  tipo_documento: "CC",
-  documento_usuario: "1003952042201",
-  numero_celu_usuario: "3146582640",
-  correo_usuario: "fogo95fd5dds2@ibtrades.com",
-  tipo_usuario: "A",
-  estado_usuario: "A"
-}
-
-
-  ];*/
+    estado_usuario: "A"
+  },
+  
+  {
+    nombre_user: "felipe14fdf",
+    nombre_usuario: "alexander",
+    apellido_usuario: "romero",
+    tipo_documento: "CC",
+    documento_usuario: "1003912861554",
+    numero_celu_usuario: "3146582640",
+    correo_usuario: "fogajo96ffd82@ibtrades.com",
+    tipo_usuario: "A",
+    estado_usuario: "A"
+  },
+  
+  {
+    nombre_user: "felipe1fdsedf",
+    nombre_usuario: "alexander",
+    apellido_usuario: "romero",
+    tipo_documento: "CC",
+    documento_usuario: "100391554",
+    numero_celu_usuario: "3146582640",
+    correo_usuario: "fogajo92@ibtrades.com",
+    tipo_usuario: "A",
+    estado_usuario: "A"
+  },
+  
+  {
+    nombre_user: "felipe1fd5554",
+    nombre_usuario: "alexander",
+    apellido_usuario: "romero",
+    tipo_documento: "CC",
+    documento_usuario: "1003915542201",
+    numero_celu_usuario: "3146582640",
+    correo_usuario: "fogajo955dds2@ibtrades.com",
+    tipo_usuario: "A",
+    estado_usuario: "A"
+  },
+  {
+    nombre_user: "felipe1fddsd54",
+    nombre_usuario: "alexander",
+    apellido_usuario: "romero",
+    tipo_documento: "CC",
+    documento_usuario: "1003952042201",
+    numero_celu_usuario: "3146582640",
+    correo_usuario: "fogo95fd5dds2@ibtrades.com",
+    tipo_usuario: "A",
+    estado_usuario: "A"
+  }
+  
+  
+    ];*/
 
 
   itemsPerPage = 5
@@ -107,53 +107,29 @@ export class UserListComponent {
 
   constructor(
     private serviceUser: UsersService,
-  ){
+  ) {
 
   }
 
   ngOnInit(): void {
 
-  /////////////////////////////
-//aca se pide los datos
+    /////////////////////////////
+    //aca se pide los datos
     this.serviceUser.getRequest().subscribe(
 
-      ( respuesta: any) => {
-    
+      (respuesta: any) => {
+
         console.log(respuesta);
 
         this.res = respuesta
-
-        
-
-       
       },
       (error) => {
-       // this.toastr.error(error.error.mensaje);
+        // this.toastr.error(error.error.mensaje);
         console.error(error.error.mensaje);
-        
+
       }
     );
 
-   
-
-
-
-
-
-
-    //////////////////////////////////////////////////
-
-    const sidebarToggle = document.getElementById("menu-lateral-aparicion");
-    if (sidebarToggle) {
-      sidebarToggle.addEventListener("click", () => {
-        console.log("Se hizo clic en el botón.");
-        const sidebar = document.getElementById("sidebar");
-        if (sidebar) {
-          sidebar.classList.toggle("collapsed");
-        }
-      });
-    }
-    
   }
 
 
@@ -180,16 +156,16 @@ export class UserListComponent {
 
     console.log("columna es:", this.columna, "ordenamiento es:", this.ordenamiento, "busqueda es ", this.busqueda),
 
-    this.serviceUser.getRequest().subscribe( data=> {
-      console.log('Data', data);
-    });
+      this.serviceUser.getRequest().subscribe(data => {
+        console.log('Data', data);
+      });
 
     this.contarPaginas()
   }
 
 
 
- 
+
   contarPaginas() {
     this.totalPaginas = 0
     this.paginaActual = 1

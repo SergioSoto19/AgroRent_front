@@ -5,14 +5,36 @@ import { HomeComponent } from './components/home/home.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import {UserListComponent } from './components/user-list/user-list.component';
 import {MachineryListComponent} from './components/machinery-list/machinery-list.component';
+import {SidebarAdminComponent} from './components/sidebar-admin/sidebar-admin.component';
+import {MachineryRegistrationComponent} from './components/machinery-registration/machinery-registration.component';
+
 
 
 const routes: Routes = [
   {path: 'login', component:LoginComponent},
   {path:'signIn',component:SignInComponent},
-  {path:'home',component:HomeComponent},
+  {path:'user',component:SidebarAdminComponent},
+  {path:'registro-maquinaria',component:MachineryRegistrationComponent},
+  {path:'prueba',component:SidebarAdminComponent},
+
+
+  {path:'home',component:HomeComponent,
+  children:[
+    {path:'usuarios',component:UserListComponent},
+    {path:'maquinarias',component:MachineryListComponent},
+    {path:'prueba',component:SidebarAdminComponent},
+    // {path:'registro-maquinaria',component:MachineryRegistrationComponent}
+
+   
+  ]
+
+},
+
+
   {path:'listUser',component:UserListComponent},
   {path:'maquinaria',component:MachineryListComponent},
+  
+
   {path:'',redirectTo:'login',pathMatch:'full'},
   {path:'**',redirectTo:'login',pathMatch:'full'}
 

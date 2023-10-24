@@ -1,285 +1,396 @@
-
-body{
-    background: #44A08D;  
-    background: -webkit-linear-gradient(to right, #093637, #44A08D);
-    background: linear-gradient(to right, #093637, #44A08D); 
-}
-.main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+body {
+  background: #44A08D;
+  background: -webkit-linear-gradient(to right, #093637, #44A08D);
+  background: linear-gradient(to right, #093637, #44A08D);
 }
 
-.image{
-    background-image: url("/assets/image/maquinaria.jpg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 10px 0 0 10px;
-    position: relative;
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.image {
+  background-image: url("/assets/image/maquinaria.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px 0 0 10px;
+  position: relative;
 }
 
 
 .custom-row {
-    width:  900px;
-    height:550px;
-    border-radius: 10px;
-    background: #fff;
-    padding: 0px;
-    box-shadow: 5px 5px 10px 1px rgba(0,0,0,0.2);
-  }
-  .text{
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-  }
-  .text p{
-      color: #fff;
-      font-size: 20px; 
-  }
-  i{
-      font-weight: 400;
-      font-size: 15px;
-  }
-  .right{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-  .input-box{
-    width: 330px;
-    box-sizing: border-box;
-  }
-  img{
-      width: 35px;
-      position: absolute;
-      top: 30px;
-      left: 30px;
-  }
-  .input-box header{
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 45px;
-  }
-
-.input-box h1{
-    font-weight: 700;
-      text-align: center;
-      margin-bottom: 45px;
-      font-style: italic;
+  width: 900px;
+  height: 550px;
+  border-radius: 10px;
+  background: #fff;
+  padding: 0px;
+  box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
 }
 
-  .input-field{
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      padding: 0 10px 0 10px;
-  }
-  .input{
-      height: 45px;
-      width: 100%;
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-      outline: none;
-      margin-bottom: 20px;
-      color: #40414a;
-  }
-  .input-box .input-field label{
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      pointer-events: none;
-      transition: .5s;
-  }
-  .input-field input:focus ~ label
-     {
-      top: -10px;
-      font-size: 13px;
-    }
-    .input-field input:valid ~ label
-    {
-     top: -10px;
-     font-size: 13px;
-     color: #5d5076;
-   }
-   .input-field .input:focus, .input-field .input:valid{
-      border-bottom: 1px solid #743ae1;
-   }
-   .submit{
-      border: none;
-      outline: none;
-      height: 45px;
-      background: #ececec;
-      border-radius: 5px;
-      transition: .4s;
-   }
-   .submit:hover{
-      background: rgba(20, 102, 45, 0.937);
-      color: #fff;
-   }
-   .signin{
-      text-align: center;
-      font-size: small;
-      margin-top: 25px;
-  }
-  span a{
-      text-decoration: none;
-      font-weight: 700;
-      color: #000;
-      transition: .5s;
-  }
-  span a:hover{
-      text-decoration: underline;
-      color: #000;
-  }
-  
-  @media only screen and (max-width: 768px){
-      .side-image{
-          border-radius: 10px 10px 0 0;
-      }
-      img{
-          width: 35px;
-          position: absolute;
-          top: 20px;
-          left: 47%;
-      }
-      .text{
-          position: absolute;
-          top: 70%;
-          text-align: center;
-      }
-      .text p, i{
-          font-size: 16px;
-      }
-      .row{
-          max-width:420px;
-          width: 100%;
-      }
-
-      
-*{
-    font-family: 'Poppins', sans-serif;
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-  }
+
+.text p {
+  color: #fff;
+  font-size: 20px;
+}
+
+i {
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.input-box {
+  width: 330px;
+  box-sizing: border-box;
+}
+
+img {
+  width: 35px;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.input-box header {
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 45px;
+}
 
 
-  
-  // ANIMATIONS 
-  
-  //Simple CSS3 Fade-in-down Animation
-  .fadeInDown {
-    -webkit-animation-name: fadeInDown;
-    animation-name: fadeInDown;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
+.input-box h1 {
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 45px;
+  font-style: italic;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 0 10px 0 10px;
+}
+
+.input {
+  height: 45px;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  outline: none;
+  margin-bottom: 20px;
+  color: #40414a;
+}
+
+
+.input-box .input-field label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.input-field input:focus~label {
+  top: -10px;
+  font-size: 13px;
+}
+
+.input-field input:valid~label {
+  top: -10px;
+  font-size: 13px;
+  color: #5d5076;
+}
+
+.input-field .input:focus,
+.input-field .input:valid {
+  border-bottom: 1px solid #743ae1;
+}
+
+.submit {
+  border: none;
+  outline: none;
+  height: 45px;
+  background: #ececec;
+  border-radius: 5px;
+  transition: .4s;
+}
+
+.submit:hover {
+  background: rgba(20, 102, 45, 0.937);
+  color: #fff;
+}
+
+.signin {
+  text-align: center;
+  font-size: small;
+  margin-top: 25px;
+}
+
+span a {
+  text-decoration: none;
+  font-weight: 700;
+  color: #000;
+  transition: .5s;
+}
+
+span a:hover {
+  text-decoration: underline;
+  color: #000;
+}
+
+@media only screen and (max-width: 768px) {
+  .side-image {
+    border-radius: 10px 10px 0 0;
   }
-  
-  @-webkit-keyframes fadeInDown {
-    0% {
-      opacity: 0;
-      -webkit-transform: translate3d(0, -100%, 0);
-      transform: translate3d(0, -100%, 0);
-    }
-    100% {
-      opacity: 1;
-      -webkit-transform: none;
-      transform: none;
-    }
+
+  img {
+    width: 35px;
+    position: absolute;
+    top: 20px;
+    left: 47%;
   }
-  
-  @keyframes fadeInDown {
-    0% {
-      opacity: 0;
-      -webkit-transform: translate3d(0, -100%, 0);
-      transform: translate3d(0, -100%, 0);
-    }
-    100% {
-      opacity: 1;
-      -webkit-transform: none;
-      transform: none;
-    }
+
+  .text {
+    position: absolute;
+    top: 70%;
+    text-align: center;
   }
-  
- // Simple CSS3 Fade-in Animation 
-  @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-  @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-  
-  .fadeIn {
-    opacity:0;
-    -webkit-animation:fadeIn ease-in 1;
-    -moz-animation:fadeIn ease-in 1;
-    animation:fadeIn ease-in 1;
-  
-    -webkit-animation-fill-mode:forwards;
-    -moz-animation-fill-mode:forwards;
-    animation-fill-mode:forwards;
-  
-    -webkit-animation-duration:1s;
-    -moz-animation-duration:1s;
-    animation-duration:1s;
+
+  .text p,
+  i {
+    font-size: 16px;
   }
-  
-  .fadeIn.first {
-    -webkit-animation-delay: 0.4s;
-    -moz-animation-delay: 0.4s;
-    animation-delay: 0.4s;
-  }
-  
-  .fadeIn.second {
-    -webkit-animation-delay: 0.6s;
-    -moz-animation-delay: 0.6s;
-    animation-delay: 0.6s;
-  }
-  
-  .fadeIn.third {
-    -webkit-animation-delay: 0.8s;
-    -moz-animation-delay: 0.8s;
-    animation-delay: 0.8s;
-  }
-  
-  .fadeIn.fourth {
-    -webkit-animation-delay: 1s;
-    -moz-animation-delay: 1s;
-    animation-delay: 1s;
-  }
-  
-  // Simple CSS3 Fade-in Animation 
-  .underlineHover:after {
-    display: block;
-    left: 0;
-    bottom: -10px;
-    width: 0;
-    height: 2px;
-    background-color: #56baed;
-    content: "";
-    transition: width 0.2s;
-  }
-  
-  .underlineHover:hover {
-    color: #0d0d0d;
-  }
-  
-  .underlineHover:hover:after{
+
+  .row {
+    max-width: 420px;
     width: 100%;
   }
-  
-  
-  
-  //OTHERS 
-  
-  *:focus {
-      outline: none;
-  } 
-  
-  #icon {
-    width:60%;
+
+
+  * {
+    font-family: 'Poppins', sans-serif;
   }
+}
+
+
+//formulario 
+
+
+
+.group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 0 10px 0 10px;
+
+}
+
+.modal-body .ctom-imput{
+  height: 40px;
+  width: 100%;
+  color: #0a0a0a;
+  padding: 10.10px;
+  background: transparent;
+  border: 1.2px solid rgba(135, 133, 133, 0.5); /* Color semi-transparente */
+  //border-bottom: 1px solid rgba(232, 227, 227, 0.2);
+  // margin-bottom: 20px;
+  //border: none;
+  outline: none;
+  border-radius: 5px;
   
-  
+}
+
+
+.modal-body .group label {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  pointer-events: none;
+  transition: .5s;
+  color: rgba(37, 37, 37, 0.5); /* Color de texto semi-transparente */
+}
+
+
+
+.modal-body .group input:focus~label {
+  top: -10px;
+  font-size: 13px;
+  background: #fff
+}
+
+
+
+.group input:valid~label {
+  top: -10px;
+  font-size: 13px;
+  background: #fff
+}
+
+
+
+
+
+
+
+
+// ANIMATIONS 
+
+//Simple CSS3 Fade-in-down Animation
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+// Simple CSS3 Fade-in Animation 
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  opacity: 0;
+  -webkit-animation: fadeIn ease-in 1;
+  -moz-animation: fadeIn ease-in 1;
+  animation: fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+.fadeIn.first {
+  -webkit-animation-delay: 0.4s;
+  -moz-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.fadeIn.second {
+  -webkit-animation-delay: 0.6s;
+  -moz-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+
+.fadeIn.third {
+  -webkit-animation-delay: 0.8s;
+  -moz-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+
+.fadeIn.fourth {
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+// Simple CSS3 Fade-in Animation 
+.underlineHover:after {
+  display: block;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 2px;
+  background-color: #56baed;
+  content: "";
+  transition: width 0.2s;
+}
+
+.underlineHover:hover {
+  color: #0d0d0d;
+}
+
+.underlineHover:hover:after {
+  width: 100%;
+}
+
+
+
+//OTHERS 
+
+*:focus {
+  outline: none;
+}
+
+#icon {
+  width: 60%;
+}
+
+
+///}

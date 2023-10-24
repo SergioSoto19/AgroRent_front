@@ -13,6 +13,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { UserListComponent } from './components/user-list/user-list.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { MachineryListComponent } from './components/machinery-list/machinery-list.component';
+import { SidebarAdminComponent } from './components/sidebar-admin/sidebar-admin.component';
+import { MachineryRegistrationComponent } from './components/machinery-registration/machinery-registration.component';
 
 @NgModule({
   
@@ -22,7 +24,9 @@ import { MachineryListComponent } from './components/machinery-list/machinery-li
     HomeComponent,
     SignInComponent,
     UserListComponent,
-    MachineryListComponent
+    MachineryListComponent,
+    SidebarAdminComponent,
+    MachineryRegistrationComponent
   ],
 
   imports: [

@@ -1,0 +1,95 @@
+<body>
+    <br>
+    <div class="container w-50">
+        
+        <br>
+        <h1 class="d-flex justify-content-center">Registro de Estudiante</h1>
+        <br>
+        <br>
+
+        <form class="row g-3 mt-3 ">
+            <!-- 
+            <div class="col-md-4 col-lg-5">
+                <label for="rostro"> Foto de Estudiante:</label>
+                <ngx-dropzone (change)="onSelect($event)" name=rostro accept="image/*" [multiple]="false"
+                    [maxFileSize]="15000000">
+                    <ngx-dropzone-label>Arrastre aca la imagen o haz click aqui </ngx-dropzone-label>
+                    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
+                        [removable]="true" (removed)="onRemove(f)">
+                        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                    </ngx-dropzone-image-preview>
+                </ngx-dropzone>
+            </div>
+            -->
+            <div class="col-xl-7">
+                <!-- <div class="row mt-3 "> -->
+                <!-- <div class="col"> -->
+                <label for="codigo"> Codigo:</label>
+                <input type="number" name="codigo" class="form-control" id="codigo" required>
+                <!-- <div *ngIf="codigo.invalid && codigo.touched" class="error">**Código es requerido**</div> -->
+                <!-- </div> -->
+                <!-- </div> -->
+
+                <div class="row  mt-3">
+                    <div class="col">
+                        <label for="nombre"> Nombre:</label>
+                        <input type="text" name="nombre" class="form-control" id="nombre" />
+                        <!-- <div *ngIf="nombre.invalid && nombre.touched" class="error">**Nombre es requerido**</div> -->
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col">
+                        <label for="apellido"> Apellido:</label>
+                        <input type="text" name="apellido" class="form-control" id="apellido" />
+                        <!-- <div *ngIf="apellido.invalid && apellido.touched" class="error">**Apellido es requerido**</div> -->
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-6">
+                <label for="tipo_documento"> Tipo de Documento:</label>
+                <select name="tipo_documento" class="form-control" id="tipo_documento">
+                    <option value="CC">Cédula de Ciudadanía</option>
+                    <option value="TI">Tarjeta de Identidad</option>
+                    <option value="CE">Cédula de Extranjería</option>
+                </select>
+                <!-- <div *ngIf="tipo_documento.invalid && tipo_documento.touched" class="error">**Tipo de documento es 
+                    requerido**
+                </div>-->
+            </div>
+
+            <div class="col-md-6">
+                <label for="numero_documento"> Numero de Documento:</label>
+                <input type="text" name="numero_documento" class="form-control" id="numero_documento" required
+                    maxlength="15" />
+                <!-- <div *ngIf="numero_documento.invalid && numero_documento.touched" class="error">**Numero de documento es 
+                    requerido**</div>-->
+            </div>
+
+            <div class="col-12">
+                <label for="estado"> Estado:</label>
+                <select name="estado" class="form-control" id="estado" maxlength="1">
+                    <option value="A">Estudiante Activo</option>
+                    <option value="R">Estudiante Retirado</option>
+                    <option value="E">Estudiante Egresado</option>
+                    <option value="S">Estudiante Suspendido</option>
+                </select>
+            </div>
+
+            <div class="col-12">
+                <label for="genero"> Genero:</label>
+                <input type="text" name="genero" class="form-control" id="genero" maxlength="3" />
+            </div>
+
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">
+                    Enviar
+                </button>
+            </div>
+
+        </form>
+    </div>
+</body>

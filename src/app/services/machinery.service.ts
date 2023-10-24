@@ -13,4 +13,12 @@ export class MachineryService {
     return this.http.get('maquinaria/hideMachinery');
   }
 
+  public postRequest(body: any): Observable<any> {
+    console.log(body)
+    let headers = new HttpHeaders({
+      'content-type': 'application/json',
+    })
+    return this.http.post('maquinaria/create', body, { 'headers': headers });
+  }
+
 }

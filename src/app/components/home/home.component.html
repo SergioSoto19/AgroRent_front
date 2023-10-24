@@ -1,9 +1,5 @@
 <body>
-
-
-
     <div class="wrapper">
-
         <aside id="sidebar">
             <!--content for sidebar   -->
             <div class="h-100">
@@ -22,17 +18,38 @@
                     </li>
 
                     <li class="sidebar-item">
-                        <a routerLink="/listUser" class="sidebar-link">
+                        <a routerLink="usuarios" class="sidebar-link">
                             <i class="fa-solid fa-users pe-2"></i>
                            Usuarios
                         </a>
                     </li>
 
                     <li class="sidebar-item">
-                        <a routerLink="/maquinaria" class="sidebar-link">
+                        <!-- <a routerLink="maquinarias" class="sidebar-link"> 
                             <i class="fa-solid fa-train-subway pe-2"></i>
                             Maquinarias
-                        </a>
+                        </a>-->
+
+
+                        <a  class="sidebar-link collapsed" data-bs-target="#maquinaria"
+                        data-bs-toggle="collapse" aria-expanded="false">
+                        <i class="fa-solid fa-train-subway pe-2"></i>
+                        Maquinaria
+                    </a>
+
+                        <ul id="maquinaria" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+
+                            <li class="sidebar-item">
+                                <a routerLink="prueba" class="sidebar-link">Registro</a>
+                            </li>
+
+                            <li class="sidebar-item">
+                                <a routerLink="maquinarias" class="sidebar-link">Consulta </a>
+                            </li>
+                        </ul>
+
+
+
                     </li>
 
                     
@@ -42,7 +59,6 @@
 
                         <a  class="sidebar-link collapsed" data-bs-target="#reservas"
                             data-bs-toggle="collapse" aria-expanded="false">
-
                             <i class="fa-solid fa-clipboard-list pe-2"></i>
                             Reservas
                         </a>
@@ -50,13 +66,14 @@
                         <ul id="reservas" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
 
                             <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">solicitudes</a>
+                                <a routerLink="/home" class="sidebar-link">solicitudes</a>
                             </li>
 
                             <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">solicitudes a mi </a>
+                                <a routerLink="/home" class="sidebar-link">solicitudes a mi </a>
                             </li>
                         </ul>
+
                     </li>
                     <!-- multas -->
                     <li class="sidebar-item">
@@ -82,20 +99,9 @@
         </aside>
 
 
-
-
-
-
-
-
-
-
-
-
-
         <!-- contenido  -->
         <div class="main">
-            <nav class="navbar navbar-expand px-3 border-bottom">
+            <nav class="navbar navbar-expand px-3 border-bottom custom-nav">
 
                 <button type="button" class="btn" id="menu-lateral-aparicion">
                     <span class="navbar-toggler-icon"></span>
@@ -121,18 +127,33 @@
 
 
 
-            <div>
+            <div class=" mt-5 mx-5" >
+                 <router-outlet></router-outlet>  
+<!--
 
+                <div class=" row">
+                    <div class="col-md-1 " style="background-color: bisque;"></div>
 
+                    <div class=" col-md-10" > 
+                      <router-outlet></router-outlet>  
+                    </div>
+                    
+                    <div class="col-md-1" style="background-color: bisque;"></div>
+                </div>
+ -->
+                <!-- 
                 <div>
                     <img src="/assets/image/welcom.jpg" class="img-fluid rounded" alt="imagen de usuario">
-                </div>
+                </div> -->
 
                 <!-- <router-outlet></router-outlet> -->
                 
+              
 
             </div>
 
         </div>
+
+        
     </div>
 </body>

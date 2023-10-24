@@ -1,28 +1,33 @@
 <body>
-
     <div class="wrapper fadeInDown">
+
         <div class="container main ">
+
             <div class="row custom-row">
+
                 <div class="col-md-6 image">
                 </div>
 
                 <div class="col-md-6 right">
+
                     <div class="input-box">
                         <h1>AgroRent</h1>
+
                         <div class="input-field">
-                            <input  #nombre type="text" class="input" id="username" required="" autocomplete="off">
+                            <input #nombre type="text" class="input" id="username" required="" autocomplete="off">
                             <label for="username">Usuario</label>
                         </div>
                         <div class="input-field">
 
-                            <input  #contrasena type="password" class="input" id="password"  required="">
+                            <input #contrasena type="password" class="input" id="password" required="">
                             <label for="password">Contraseña</label>
                         </div>
 
                         <div class="input-field">
-                            <input type="submit" class="submit" value="iniciar sesión " (click)="login(nombre.value, contrasena.value)">
+                            <input type="submit" class="submit" value="iniciar sesión "
+                                (click)="login(nombre.value, contrasena.value)">
                         </div>
-        
+
                         <div class="signin">
                             <span> <a routerLink="/home">¿olvidaste tu contraseña? </a></span><br> <br>
                             <!-- <span>¿No tienes una cuenta?  <a routerLink="/signIn">Registrate </a></span> -->
@@ -51,43 +56,68 @@
 
 
                 <div class="modal-body">
+                    <!-- 
+                    <form class="for">
+                        <div class="row">
+                            <div class="mb-3">
+                
+                                <div class="grupo">
+                                    <input type="email" class="inputs" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    <label for="exampleInputEmail1" class="label">Email address</label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                
+                        </div>
+                    </form>
 
-                    <form [formGroup]="formRegiUser" id="frmRcursoOne"  (submit)="onSubmit()">
+ -->
+                    <form [formGroup]="formRegiUser" id="frmRcursoOne" (submit)="onSubmit()">
                         <fieldset>
                             <div class="row">
-                                <div class="col-6 mb-4">
-                                    <!-- <label for="nombre" class="form-label">Nombre</label> -->
-                                    <input type="text" id="nombre" formControlName="nombre" class="form-control"
-                                        placeholder="Nombre">
-    
+
+
+                                <div class=" group col-6 mb-4">
+                                    <input type="text" id="nombre" formControlName="nombre" class="ctom-imput"
+                                        required="" placeholder="" autocomplete="off">
+                                    <label for="nombre" class="label"><Noscript></Noscript>Nombre</label>
+
                                     <div class="alert alert-danger"
                                         *ngIf="formRegiUser.controls['nombre'].invalid && formRegiUser.controls['nombre'].touched">
-                                        <div *ngIf="formRegiUser.controls['nombre'].errors?.['required']">El nombre es
+                                        <div *ngIf="formRegiUser.controls['nombre'].errors?.['required']">El nombre
+                                            es
                                             obligatoio </div>
-                                        <div *ngIf="formRegiUser.controls['nombre'].errors?.['pattern']">No se aceptan numeros
+                                        <div *ngIf="formRegiUser.controls['nombre'].errors?.['pattern']">No se
+                                            aceptan
+                                            numeros
                                         </div>
                                     </div>
                                 </div>
-    
-                                <div class="col-6 mb-4">
+
+                                <div class=" group col-6 mb-4">
                                     <!-- <label for="apellido" class="form-label">Apellido</label> -->
-                                    <input type="text" id="apellido" formControlName="apellido" class="form-control"
-                                        placeholder="Apellido">
+                                    <input type="text" id="apellido" formControlName="apellido" class="ctom-imput"
+                                        required="">
+                                    <label for="nombre" class="label"><Noscript></Noscript>Apellido</label>
+
                                     <div class="alert alert-danger"
                                         *ngIf="formRegiUser.controls['apellido'].invalid && formRegiUser.controls['apellido'].touched">
-                                        <div *ngIf="formRegiUser.controls['apellido'].errors?.['required']">El apellido es
+                                        <div *ngIf="formRegiUser.controls['apellido'].errors?.['required']">El apellido
+                                            es
                                             obligatoio </div>
-                                        <div *ngIf="formRegiUser.controls['apellido'].errors?.['pattern']">No se aceptan numeros
+                                        <div *ngIf="formRegiUser.controls['apellido'].errors?.['pattern']">No se aceptan
+                                            numeros
                                         </div>
                                     </div>
                                 </div>
 
-                                
-                                <div class="col-12 mb-4">
-                                     <input type="text" formControlName="user_name" id="user_namer"
-                                        class="form-control" placeholder="Nombre de Usuario">
 
-                                        
+                                <div class="  group col-12 mb-4">
+                                    <input type="text" formControlName="user_name" id="user_namer" class="ctom-imput"
+                                        required="">
+                                        <label for="nombre" class="label"><Noscript></Noscript>Nombre de usuario</label>
+
+
                                     <div class="alert alert-danger"
                                         *ngIf="formRegiUser.controls['user_name'].invalid && formRegiUser.controls['user_name'].touched">
                                         <div *ngIf="formRegiUser.controls['user_name'].errors?.['required']">campo
@@ -95,14 +125,16 @@
                                     </div>
                                 </div>
 
-                                <div class="col-12 mb-4">
+                                <div class="group col-12 mb-4">
                                     <!-- <label for="tipo_documento" class="form-label">Tipo de Documento</label> -->
-                                    <select id="tipo_documento" formControlName="tipo_documento" class="form-select">
-                                        <option value="" disabled selected>Tipo de Documento</option>
+                                 <select id="tipo_documento" formControlName="tipo_documento" class="ctom-imput" >   <!-- class="form-select" -->
+                                        <option value="" disabled selected>Tipo de Documento</option> 
                                         <option value="CC">Cédula de Ciudadanía</option>
                                         <option value="CE">Cédula de Extranjería</option>
                                         <option value="PA">Pasaporte</option>
                                     </select>
+                                    <!-- <label for="nombre" class="label"><Noscript></Noscript>Tipo de documento</label> -->
+                            
                                     <div class="alert alert-danger"
                                         *ngIf="formRegiUser.controls['tipo_documento'].invalid && formRegiUser.controls['tipo_documento'].touched">
                                         <div *ngIf="formRegiUser.controls['tipo_documento'].errors?.['required']">campo
@@ -110,64 +142,72 @@
                                     </div>
                                 </div>
 
-                                <div class="col-12 mb-4">
+                                <div class="  group col-12 mb-4">
                                     <!-- <label for="numero_documento" class="form-label">Numero de Docuemento</label> -->
                                     <input type="text" formControlName="numero_documento" id="numero_documento"
-                                        class="form-control" placeholder="Numero de Docuemento">
-    
+                                        class="ctom-imput" required="">
+                                    <label for="numero_documento" class="label"><Noscript></Noscript>Numero de Docuemento</label>
+
                                     <div class="alert alert-danger"
                                         *ngIf="formRegiUser.controls['numero_documento'].invalid && formRegiUser.controls['numero_documento'].touched">
-                                        <div *ngIf="formRegiUser.controls['numero_documento'].errors?.['required']">campo
+                                        <div *ngIf="formRegiUser.controls['numero_documento'].errors?.['required']">
+                                            campo
                                             obligatorio</div>
                                     </div>
                                 </div>
 
-                                <div class="mb-12 mb-4">
+                                <div class="  group mb-12 mb-4">
                                     <!-- <label for="number-movil" class="form-label">Numero de celular</label> -->
                                     <input type="text" id="number-movil" formControlName="numero_celular"
-                                        class="form-control" placeholder="Numero de celular">
-    
+                                        class="ctom-imput" required="">
+                                        <label for="numero_celular" class="label"><Noscript></Noscript>Numero de celular </label>
+
                                     <div class="alert alert-danger"
                                         *ngIf="formRegiUser.controls['numero_celular'].invalid && formRegiUser.controls['numero_celular'].touched">
-                                        <div *ngIf="formRegiUser.controls['numero_celular'].errors?.['required']">campo obligatorio</div>
-                                        <div *ngIf="formRegiUser.controls['numero_celular'].errors?.['pattern']">solo se aceptan numeros</div>
- </div>
+                                        <div *ngIf="formRegiUser.controls['numero_celular'].errors?.['required']">campo
+                                            obligatorio</div>
+                                        <div *ngIf="formRegiUser.controls['numero_celular'].errors?.['pattern']">solo se
+                                            aceptan numeros</div>
+                                    </div>
                                 </div>
 
-                                <div class="mb-12 mb-4">
-                                    <input type="text" id="email" formControlName="correo_electronico" class="form-control"
-                                        placeholder="Correo Electronico">
-    
+                                <div class=" group mb-12 mb-4">
+                                    <input type="text" id="email" formControlName="correo_electronico"
+                                        class="ctom-imput" required="">
+                                        <label for="email" class="label"><Noscript></Noscript>Correro electronico </label>
+
                                     <div class="alert alert-danger"
                                         *ngIf="formRegiUser.controls['nombre'].invalid && formRegiUser.controls['correo_electronico'].touched">
-                                        <div *ngIf="formRegiUser.controls['correo_electronico'].errors?.['required']">campo
+                                        <div *ngIf="formRegiUser.controls['correo_electronico'].errors?.['required']">
+                                            campo
                                             obligatorio </div>
                                     </div>
                                 </div>
-                             
-                                <div class="col-6 mb-4">
+
+                                <div class=" group col-6 mb-4">
                                     <input type="password" formControlName="password" id="passwordr"
-                                       class="form-control" placeholder="contraseña">
+                                        class="ctom-imput" required="">
+                                        <label for="passwordr" class="label"><Noscript></Noscript>Contraseña</label>
 
-                                       
-                                   <div class="alert alert-danger"
-                                       *ngIf="formRegiUser.controls['password'].invalid && formRegiUser.controls['password'].touched">
-                                       <div *ngIf="formRegiUser.controls['password'].errors?.['required']">campo
-                                           obligatorio</div>
-                                   </div>
-                               </div>
 
-                               <div class="col-6 mb-4">
-                                <input type="password" formControlName="vali_password" id="va-password"
-                                   class="form-control" placeholder="repite la contraseña">
-                                    
-                                   
-                               <div class="alert alert-danger"
-                                   *ngIf="formRegiUser.controls['vali_password'].invalid && formRegiUser.controls['vali_password'].touched">
-                                   <div *ngIf="formRegiUser.controls['vali_password'].errors?.['required']">campo
-                                       obligatorio</div>
-                               </div>
-                           </div>
+                                    <div class="alert alert-danger"
+                                        *ngIf="formRegiUser.controls['password'].invalid && formRegiUser.controls['password'].touched">
+                                        <div *ngIf="formRegiUser.controls['password'].errors?.['required']">campo
+                                            obligatorio</div>
+                                    </div>
+                                </div>
+
+                                <div class=" group col-6 mb-4">
+                                    <input type="password" formControlName="vali_password" id="va-password"
+                                        class="ctom-imput" required="">
+                                    <label for="password" class="label"><Noscript></Noscript>Validacion contraseña</label>
+
+                                    <div class="alert alert-danger"
+                                        *ngIf="formRegiUser.controls['vali_password'].invalid && formRegiUser.controls['vali_password'].touched">
+                                        <div *ngIf="formRegiUser.controls['vali_password'].errors?.['required']">campo
+                                            obligatorio</div>
+                                    </div>
+                                </div>
 
                             </div>
                         </fieldset>
@@ -176,8 +216,9 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cerrar</button>
-                    <button type="submit" form="frmRcursoOne" class="btn btn-success" [disabled]="!formRegiUser.valid">Registrate </button>
-                  </div>
+                    <button type="submit" form="frmRcursoOne" class="btn btn-success"
+                        [disabled]="!formRegiUser.valid">Registrate </button>
+                </div>
             </div>
         </div>
     </div>

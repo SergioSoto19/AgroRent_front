@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 })
 
 export class LoginComponent {
-  
+
   formRegiUser: FormGroup;
   // modelUser = new User("NOprueba","ApellPrueb","cc","ddd","prueba@","A")
   modelUser: any;
@@ -29,32 +29,32 @@ export class LoginComponent {
     private serviceLogin: LoginService,
     private router: Router
 
-  
-  
+
+
   ) {
     this.formRegiUser = this.formBuilder.group({
       nombre: ['', [Validators.required, Validators.pattern('^[A-Za-z]+$')]],
       apellido: ['', [Validators.required, Validators.pattern('^[A-Za-z]+$')]],
-      user_name:['',[Validators.required]],
+      user_name: ['', [Validators.required]],
       tipo_documento: ['', [Validators.required]],
       numero_documento: ['', [Validators.required]],
-      numero_celular:['', [Validators.required,Validators.pattern('^[0-9]*$')]],
+      numero_celular: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       correo_electronico: ['', [Validators.required, Validators.email]],
-      password:['',[Validators.required]],
+      password: ['', [Validators.required]],
       vali_password: ['', [Validators.required]]
-    },{
-      validators: this.passwordMatchValidator 
+    }, {
+      validators: this.passwordMatchValidator
     });
   }
 
   passwordMatchValidator(formGroup: FormGroup) {
     const passwordControl = formGroup.get('password');
     const valiPasswordControl = formGroup.get('vali_password');
-  
+
     if (passwordControl && valiPasswordControl) {
       const password = passwordControl.value;
       const valiPassword = valiPasswordControl.value;
-  
+
       if (password !== valiPassword) {
         valiPasswordControl.setErrors({ passwordMismatch: true });
       } else {
@@ -63,8 +63,8 @@ export class LoginComponent {
     }
   }
 
-  
-  onSubmit(){
+
+  onSubmit() {
     this.modelUser = new User(
       this.formRegiUser.value.user_name,
       this.formRegiUser.value.password,
@@ -75,58 +75,57 @@ export class LoginComponent {
       this.formRegiUser.value.numero_celular,
       this.formRegiUser.value.correo_electronico,
       "C"
-     );
-     this.addUser()
-   }
-   
-   login(email: string, contrasena: string) {
-/*
-    this.serviceUser.getRequest().subscribe(
-      res=> {console.log('Re',res) }
-      )*/
+    );
+    this.addUser()
+  }
+
+  login(email: string, contrasena: string) {
+    /*
+        this.serviceUser.getRequest().subscribe(
+          res=> {console.log('Re',res) }
+          )*/
 
     // console.log(email + "es"+ contrasena)
 
-    this.serviceLogin.validateUser({ 
+    this.serviceLogin.validateUser({
       nombre_user: email,
-      contrasena_usuario: contrasena}).subscribe(
+      contrasena_usuario: contrasena
+    }).subscribe(
 
-        ( respuesta: any) => {
-      
-          console.log(respuesta);
-
-          if (respuesta.tipo_usuario === 'A') {
-            this.router.navigate(['/home']);
-          } else if (respuesta.tipo_usuario === 'C') {
-            this.router.navigate(['/signIn']);
-          }
-          
-          // if(respuesta)
-         
-        },
-        (error) => {
-          this.toastr.error(error.error.mensaje);
-          // console.error(error.error.mensaje);
-          
+      (respuesta: any) => {
+        console.log(respuesta);
+        if (respuesta.tipo_usuario === 'A') {
+          this.router.navigate(['/home']);
+        } else if (respuesta.tipo_usuario === 'C') {
+          this.router.navigate(['/signIn']);
         }
-      );
-   }
 
+        // if(respuesta)
 
-   addUser(){
-    this.serviceUser.postRequest(this.modelUser).subscribe(
-      ( respuesta: any) => {
-        this.toastr.success(respuesta.mensaje);
-    
       },
       (error) => {
         this.toastr.error(error.error.mensaje);
-        
+        // console.error(error.error.mensaje);
+
+      }
+    );
+  }
+
+
+  addUser() {
+    this.serviceUser.postRequest(this.modelUser).subscribe(
+      (respuesta: any) => {
+        this.toastr.success(respuesta.mensaje);
+
+      },
+      (error) => {
+        this.toastr.error(error.error.mensaje);
+
       }
     );
 
 
-   }
+  }
 
 
 

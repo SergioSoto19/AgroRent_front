@@ -30,42 +30,14 @@ export class MachineryListComponent {
     this.serviceUser.getRequest().subscribe(
 
       ( respuesta: any) => {
-    
         console.log(respuesta);
-
         this.res = respuesta
-
-        
-
-       
       },
       (error) => {
        // this.toastr.error(error.error.mensaje);
         console.error(error.error.mensaje);
-        
       }
     );
-
-   
-
-
-
-
-
-
-    //////////////////////////////////////////////////
-
-    const sidebarToggle = document.getElementById("menu-lateral-aparicion");
-    if (sidebarToggle) {
-      sidebarToggle.addEventListener("click", () => {
-        console.log("Se hizo clic en el botón.");
-        const sidebar = document.getElementById("sidebar");
-        if (sidebar) {
-          sidebar.classList.toggle("collapsed");
-        }
-      });
-    }
-    
   }
 
 
