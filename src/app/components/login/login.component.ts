@@ -97,7 +97,7 @@ export class LoginComponent {
         if (respuesta.tipo_usuario === 'A') {
           this.router.navigate(['/home']);
         } else if (respuesta.tipo_usuario === 'C') {
-          this.router.navigate(['/signIn']);
+          this.router.navigate(['/dashboard-user']);
         }
 
         // if(respuesta)

@@ -15,6 +15,10 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { MachineryListComponent } from './components/machinery-list/machinery-list.component';
 import { SidebarAdminComponent } from './components/sidebar-admin/sidebar-admin.component';
 import { MachineryRegistrationComponent } from './components/machinery-registration/machinery-registration.component';
+import { DashboardUserComponent } from './components/dashboard-user/dashboard-user.component';
+import { CatalogueComponent } from './components/catalogue/catalogue.component';
+import { MachineryInfoComponent } from './components/machinery-info/machinery-info.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 @NgModule({
   
@@ -26,7 +30,11 @@ import { MachineryRegistrationComponent } from './components/machinery-registrat
     UserListComponent,
     MachineryListComponent,
     SidebarAdminComponent,
-    MachineryRegistrationComponent
+    MachineryRegistrationComponent,
+    DashboardUserComponent,
+    CatalogueComponent,
+    MachineryInfoComponent,
+    
   ],
 
   imports: [
@@ -37,8 +45,8 @@ import { MachineryRegistrationComponent } from './components/machinery-registrat
     HttpClientModule,
     NgxPaginationModule,
     BrowserAnimationsModule, 
-    ToastrModule.forRoot({})
-    
+    ToastrModule.forRoot({}),
+    FullCalendarModule
   ],
 
   providers: [],

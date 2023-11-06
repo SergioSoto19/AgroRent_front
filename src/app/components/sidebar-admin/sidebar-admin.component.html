@@ -74,7 +74,6 @@
 
         </div>
   -->
-
   <!-- </div> -->
 
   <div class="wrapper">
@@ -82,38 +81,64 @@
     <div class="container ">
 
       <form class="row g-3 mt-3 " [formGroup]="formRegiMachy" id="frmRcursoOne" (submit)="onSubmit()">
-
         <div class="group col-6">
-          <input type="text" formControlName="nombre" class="ctom-imput" id="nombre" required="" autocomplete="off">
+          <input type="text" formControlName="nombreMaquina" class="ctom-imput" id="nombre" required="" autocomplete="off">
           <label for="nombre"> Nombre</label>
 
+           
           <div class="alert alert-danger"
-            *ngIf="formRegiMachy.controls['nombre'].invalid && formRegiMachy.controls['nombre'].touched">
-            <div *ngIf="formRegiMachy.controls['nombre'].errors?.['required']">El nombre es obligatoio </div>
-            <div *ngIf="formRegiMachy.controls['nombre'].errors?.['pattern']">No seaceptan numeros
-            </div>
+            *ngIf="formRegiMachy.controls['nombreMaquina'].invalid && formRegiMachy.controls['nombreMaquina'].touched">
+            <div *ngIf="formRegiMachy.controls['nombreMaquina'].errors?.['required']">El nombre es obligatoio </div>
+            <div *ngIf="formRegiMachy.controls['nombreMaquina'].errors?.['pattern']">No seaceptan numeros</div>
+          </div>
+          
+        </div>
+       
+        <div class="group col-6">
+          <input type="text" formControlName="descripcion" class="ctom-imput" required="" id="descripcion"
+            autocomplete="off">
+          <label for="descripcion"> Descripcion</label>
+        
+          <div class="alert alert-danger"
+            *ngIf="formRegiMachy.controls['descripcion'].invalid && formRegiMachy.controls['descripcion'].touched ">
+            <div *ngIf="formRegiMachy.controls['descripcion'].errors?.['required']">El nombre es obligatoio </div>
+          </div>
+        </div>
+  
+
+        <div class="group col-6">
+          <input type="text" formControlName="placa" class="ctom-imput" required="" id="placa" autocomplete="off">
+          <label for="placa"> Placa maquina (opcional) </label>
+           
+          <div class="alert alert-danger"
+            *ngIf="formRegiMachy.controls['placa'].invalid && formRegiMachy.controls['placa'].touched ">
+            <div *ngIf="formRegiMachy.controls['placa'].errors?.['required']">El nombre es obligatoio </div>
           </div>
 
         </div>
 
+     
         <div class="group col-6">
-          <input type="text" name="descripcion" class="ctom-imput" required="" id="descripcion">
-          <label for="descripcion"> Descripcion</label>
-        </div>
-
-        <div class="group col-6">
-          <input type="text" name="placa" class="ctom-imput" required="" id="placa">
-          <label for="placa"> Placa maquina (opcional) </label>
-        </div>
-
-        <div class="group col-6">
-          <input type="text" name="modelo" class="ctom-imput" required="" id="model">
+          <input type="text"formControlName="modelo"  class="ctom-imput" required="" id="model"
+            autocomplete="off">
           <label for="modelo"> Modelo de Maquina (opcional) </label>
-        </div>
 
+           
+          <div class="alert alert-danger"
+            *ngIf="formRegiMachy.controls['modelo'].invalid && formRegiMachy.controls['modelo'].touched ">
+            <div *ngIf="formRegiMachy.controls['modelo'].errors?.['required']">El nombre es obligatoio </div>
+          </div>
+        
+        </div>
+                
         <div class="group col">
-          <input type="text" name="precio" class="ctom-imput" required="" id="precio">
+          <input type="text" formRegiMachy.controls="precio" class="ctom-imput" required="" id="precio" autocomplete="off">
           <label for="precio"> Precio por hora </label>
+           
+          <div class="alert alert-danger"
+            *ngIf="formRegiMachy.controls['precio'].invalid && formRegiMachy.controls['precio'].touched  ">
+            <div *ngIf="formRegiMachy.controls['precio'].errors?.['required']">El nombre es obligatoio </div>
+          </div>
         </div>
 
       </form>

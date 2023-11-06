@@ -26,7 +26,16 @@ export class SidebarAdminComponent {
 
   ) {
     this.formRegiMachy = this.formBuilder.group({
-      nombre: ['', [Validators.required, Validators.pattern('^[A-Za-z]+$')]],
+      nombreMaquina: ['', [Validators.required, Validators.pattern('^[A-Za-z]+$')]],
+      descripcion: ['', [Validators.required]],
+      placa: ['', [Validators.required]],
+      modelo:['', [Validators.required]],
+      precio:['', [Validators.required]]
+      
+     
+     
+
+
      /* apellido: ['', [Validators.required, Validators.pattern('^[A-Za-z]+$')]],
       user_name: ['', [Validators.required]],
       tipo_documento: ['', [Validators.required]],
@@ -41,13 +50,14 @@ export class SidebarAdminComponent {
 
 
   onSubmit() {
-    this.model_machinery = new machinery(
+   this.model_machinery = new machinery(
     "1003912",
-      this.formRegiMachy.value.nombre,
-      this.formRegiMachy.value.password,
-     "jjjj",
-      this.formRegiMachy.value.apellido,
-      this.formRegiMachy.value.tipo_documento,
+      this.formRegiMachy.value.nombreMaquina,
+      this.formRegiMachy.value.descripcion,
+      this.formRegiMachy.value.placa,
+      this.formRegiMachy.value.moldeo,
+      "a",
+      this.formRegiMachy.value.precio,
     );
     this.addUser()
   }

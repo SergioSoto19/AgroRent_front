@@ -7,6 +7,9 @@ import {UserListComponent } from './components/user-list/user-list.component';
 import {MachineryListComponent} from './components/machinery-list/machinery-list.component';
 import {SidebarAdminComponent} from './components/sidebar-admin/sidebar-admin.component';
 import {MachineryRegistrationComponent} from './components/machinery-registration/machinery-registration.component';
+import {DashboardUserComponent} from './components/dashboard-user/dashboard-user.component';
+import {CatalogueComponent} from './components/catalogue/catalogue.component';
+import {MachineryInfoComponent} from './components/machinery-info/machinery-info.component';
 
 
 
@@ -16,6 +19,18 @@ const routes: Routes = [
   {path:'user',component:SidebarAdminComponent},
   {path:'registro-maquinaria',component:MachineryRegistrationComponent},
   {path:'prueba',component:SidebarAdminComponent},
+  {path:'catalogo',component:CatalogueComponent},
+  {path:'machinery-info/:id',component:MachineryInfoComponent},
+
+
+  {path:'dashboard-user'
+  ,component:DashboardUserComponent,
+  children:[
+    {path:'catalogoo',component:CatalogueComponent},
+    {path:'machinery-info/:id',component:MachineryInfoComponent},
+  ]
+
+},
 
 
   {path:'home',component:HomeComponent,

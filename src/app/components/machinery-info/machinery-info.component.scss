@@ -1,0 +1,30 @@
+.precio {
+    font-size: 2.5rem; 
+}
+
+
+.fixed-size-column {
+    flex: 0 0 50%; /* Ajusta el tamaño fijo al 50% del contenedor */
+}
+
+.indicador-negro button {
+    // background-color: black; //color negro 
+    width: 8px; /* Ancho del indicador */
+    height: 8px; /* Altura del indicador */
+    border: none; /* Elimina el borde */
+    border-radius: 50%; /* Hace que sea un círculo */
+    margin: 5px; /* Espaciado entre indicadores */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
