@@ -1,31 +1,115 @@
-
 body {
-    background-color: red;
-  }
-/*
-body {
-    background: #16222A;
-   
-    background: -webkit-linear-gradient(to bottom, #3A6073, #16222A);
-   
-    background: linear-gradient(to bottom, #3A6073, #16222A);
-   
+  border-radius: 10px;
 }
 
-.invalid-field {
-    border-color: red;
+.content-title {
+  border-radius: 10px 10px 0 0;
+  background-color: #45a26b;
 }
 
-.error {
-    color: red;
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 0 10px 0 10px;
+  z-index: 12;
 }
 
-.container {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-}*/
+.input {
+  height: 45px;
+  width: 100%;
+  color: #40414a;
+  padding: 0.30px;
+  background: transparent;
+  border: 1.2px solid #fff;
+  //border-bottom: 1px solid rgba(232, 227, 227, 0.2);
+  margin-bottom: 20px;
+  //border: none;
+  outline: none;
+  border-radius: 5px;
 
 
-  
+}
+
+
+.input-box .input-field label {
+  position: absolute;
+  top: 11px;
+  left: 18px;
+  pointer-events: none;
+  transition: .5s;
+
+}
+
+
+
+.input-field input:focus~label {
+  top: -10px;
+  font-size: 13px;
+  background: yellow;
+}
+
+
+.input-field input:valid~label {
+  top: -10px;
+  font-size: 13px;
+  color: #0ff0b0;
+}
+
+
+//formulario 
+
+
+
+.group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 0 10px 0 10px;
+
+}
+
+.ctom-imput {
+  height: 40px;
+  width: 100%;
+  color: #0a0a0a;
+  padding: 10.10px;
+  background: transparent;
+  border: 1.2px solid rgba(135, 133, 133, 0.5);
+  /* Color semi-transparente */
+  //border-bottom: 1px solid rgba(232, 227, 227, 0.2);
+  // margin-bottom: 20px;
+  //border: none;
+  outline: none;
+  border-radius: 5px;
+
+}
+
+
+.group label {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  pointer-events: none;
+  transition: .5s;
+  color: rgba(37, 37, 37, 0.5);
+  /* Color de texto semi-transparente */
+}
+
+
+
+.group input:focus~label {
+  top: -10px;
+  font-size: 13px;
+  background: #fff
+}
+
+
+
+.group input:valid~label {
+  top: -10px;
+  font-size: 13px;
+  background: #fff
+}
+

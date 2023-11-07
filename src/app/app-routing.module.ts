@@ -21,6 +21,7 @@ const routes: Routes = [
   {path:'prueba',component:SidebarAdminComponent},
   {path:'catalogo',component:CatalogueComponent},
   {path:'machinery-info/:id',component:MachineryInfoComponent},
+  {path:'maquinarias',component:MachineryListComponent},
 
 
   {path:'dashboard-user'
@@ -28,6 +29,9 @@ const routes: Routes = [
   children:[
     {path:'catalogoo',component:CatalogueComponent},
     {path:'machinery-info/:id',component:MachineryInfoComponent},
+    {path:'registro-maquinaria',component:MachineryRegistrationComponent},
+    {path:'inventario',component:MachineryListComponent},
+
   ]
 
 },

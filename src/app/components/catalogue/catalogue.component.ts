@@ -23,6 +23,8 @@ export class CatalogueComponent {
         ( respuesta: any) => {
           console.log(respuesta);
           this.res = respuesta
+
+          
         },
         (error) => {
          // this.toastr.error(error.error.mensaje);

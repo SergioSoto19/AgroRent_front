@@ -19,6 +19,7 @@ import { DashboardUserComponent } from './components/dashboard-user/dashboard-us
 import { CatalogueComponent } from './components/catalogue/catalogue.component';
 import { MachineryInfoComponent } from './components/machinery-info/machinery-info.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 @NgModule({
   
@@ -46,7 +47,8 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     NgxPaginationModule,
     BrowserAnimationsModule, 
     ToastrModule.forRoot({}),
-    FullCalendarModule
+    FullCalendarModule,
+    NgxDropzoneModule,
   ],
 
   providers: [],

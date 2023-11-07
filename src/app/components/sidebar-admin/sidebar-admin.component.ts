@@ -50,7 +50,7 @@ export class SidebarAdminComponent {
 
 
   onSubmit() {
-   this.model_machinery = new machinery(
+   /*this.model_machinery = new machinery(
     "1003912",
       this.formRegiMachy.value.nombreMaquina,
       this.formRegiMachy.value.descripcion,
@@ -58,7 +58,7 @@ export class SidebarAdminComponent {
       this.formRegiMachy.value.moldeo,
       "a",
       this.formRegiMachy.value.precio,
-    );
+    );*/
     this.addUser()
   }
 

@@ -26,6 +26,34 @@
                         </a>
                     </li>
 
+                    <li class="sidebar-item">
+                        <!-- <a routerLink="maquinarias" class="sidebar-link"> 
+                            <i class="fa-solid fa-train-subway pe-2"></i>
+                            Maquinarias
+                        </a>-->
+
+
+                        <a class="sidebar-link collapsed" data-bs-target="#maquinaria" data-bs-toggle="collapse"
+                            aria-expanded="false">
+                            <i class="fa-solid fa-train-subway pe-2"></i>
+                            Maquinaria
+                        </a>
+
+                        <ul id="maquinaria" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+
+                            <li class="sidebar-item">
+                                <a routerLink="registro-maquinaria" class="sidebar-link">Registro</a>
+                            </li>
+
+                            <li class="sidebar-item">
+                                <a routerLink="inventario" class="sidebar-link">Inventario</a>
+                            </li>
+                        </ul>
+
+
+
+                    </li>
+
                 </ul>
             </div>
         </aside>

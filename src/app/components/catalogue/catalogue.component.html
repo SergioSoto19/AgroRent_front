@@ -9,7 +9,11 @@
                     <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
 
                    <!-- <img src='/assets/image/maquinaria.jpg' alt="">  -->
-                   <img [src]="maquinaria.path ? maquinaria.path : '/assets/image/no foto1.jpg'" alt="{{maquinaria.nombre_maquina}}" class="d-block w-100">
+                   <!-- <img [src]="maquinaria.path ? maquinaria.path : '/assets/image/no foto1.jpg'" alt="{{maquinaria.nombre_maquina}}" class="d-block w-100"> -->
+                   <img [src]="maquinaria.path ? '/assets/image/no foto1.jpg' : '/assets/image/no foto1.jpg'" alt="{{maquinaria.nombre_maquina}}" class="d-block w-100">
+                   <!-- '/assets/image/' + maquinaria.path[0] -->
+                   <!-- <img [src]="maquinaria.path && maquinaria.path.length > 0 ? '/assets/image/' + maquinaria.path[0] : '/assets/image/no foto1.jpg'" alt="{{maquinaria.nombre_maquina}}" class="d-block w-100"> -->
+
                    <!-- <img [src]="maquinaria.imagen" alt="{{maquinaria.nombre_maquina}}"> -->
 
 
