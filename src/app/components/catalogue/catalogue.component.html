@@ -1,37 +1,23 @@
 <body>
-    <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <!-- <div class="container"> -->
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4  g-3 p-4" >
+            <div class="col px-3" *ngFor="let maquinaria of res" >
 
-            <div class="col" *ngFor="let maquinaria of res">
-                
                 <div class="card shadow-sm">
-
-                    <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
-
-                   <!-- <img src='/assets/image/maquinaria.jpg' alt="">  -->
-                   <!-- <img [src]="maquinaria.path ? maquinaria.path : '/assets/image/no foto1.jpg'" alt="{{maquinaria.nombre_maquina}}" class="d-block w-100"> -->
-                   <img [src]="maquinaria.path ? '/assets/image/no foto1.jpg' : '/assets/image/no foto1.jpg'" alt="{{maquinaria.nombre_maquina}}" class="d-block w-100">
-                   <!-- '/assets/image/' + maquinaria.path[0] -->
-                   <!-- <img [src]="maquinaria.path && maquinaria.path.length > 0 ? '/assets/image/' + maquinaria.path[0] : '/assets/image/no foto1.jpg'" alt="{{maquinaria.nombre_maquina}}" class="d-block w-100"> -->
-
-                   <!-- <img [src]="maquinaria.imagen" alt="{{maquinaria.nombre_maquina}}"> -->
-
-
-                    <div class="card-body">
+                   <img [src]="maquinaria.path ? '/assets/image/Ima pruega de registros/Maquinarias/'+ maquinaria.path[0] : '/assets/image/no foto1.jpg'" alt="{{maquinaria.nombre_maquina}}" class="d-block w-100">
+                    <div class="card-body px-5">
                         <h5 class="card-title">{{maquinaria.nombre_maquina}}</h5> <!--titulo  -->
 
                         <p class="card-text"> precio hora: {{maquinaria.precio_hora}}</p> <!--precio  -->
 
                         <div class="d-flex justify-content-between align-items-center">
-
                             <div class="btn-group">
-                                <a  routerLink="/machinery-info/id"class="btn btn-primary">Detalles</a>
+                                <a [routerLink]="'/machinery-info/' + maquinaria.id_maquinaria" class="btn btn-primary">Detalles</a>
                             </div>
-                            <!-- <a href="" class="btn btn-primary">Detalles</a> -->
-                            <!-- <a [routerLink]="['/detalles', maquinaria.id_maquinaria]" class="btn btn-primary">Detalles</a> -->
-                            
                         </div>
                     </div>
+
+                    
                 </div>
             </div>
 
@@ -41,5 +27,5 @@
 
         </div>
 
-    </div>
+    <!-- </div> -->
 </body>

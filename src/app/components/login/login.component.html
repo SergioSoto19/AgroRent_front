@@ -81,6 +81,7 @@
                                     <input type="text" id="nombre" formControlName="nombre" class="ctom-imput"
                                         required="" placeholder="" autocomplete="off">
                                     <label for="nombre" class="label"><Noscript></Noscript>Nombre</label>
+                                    
 
                                     <div class="alert alert-danger"
                                         *ngIf="formRegiUser.controls['nombre'].invalid && formRegiUser.controls['nombre'].touched">
@@ -131,7 +132,7 @@
                                         <option value="" disabled selected>Tipo de Documento</option> 
                                         <option value="CC">Cédula de Ciudadanía</option>
                                         <option value="CE">Cédula de Extranjería</option>
-                                        <option value="PA">Pasaporte</option>
+                                        
                                     </select>
                                     <!-- <label for="nombre" class="label"><Noscript></Noscript>Tipo de documento</label> -->
                             
@@ -216,8 +217,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cerrar</button>
-                    <button type="submit" form="frmRcursoOne" class="btn btn-success"
-                        [disabled]="!formRegiUser.valid">Registrate </button>
+                    <button type="submit" form="frmRcursoOne" class="btn btn-success" [disabled]="!formRegiUser.valid">Registrate </button>
                 </div>
             </div>
         </div>

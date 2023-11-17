@@ -46,7 +46,7 @@
                             </li>
 
                             <li class="sidebar-item">
-                                <a routerLink="inventario" class="sidebar-link">Inventario</a>
+                             <a routerLink="machinery-info/:id" class="sidebar-link">Inventario</a>   <!-- inve-->
                             </li>
                         </ul>
 
@@ -72,14 +72,20 @@
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-icon pe-md-0" data-bs-toggle="dropdown">
-                                <img src="/assets/image/login.jpg" class="user img-fluid rounded"
-                                    alt="imagen de usuario">
+                                <img [src]="'/assets/image/Ima pruega de registros/usuarios/' + getUser().imagen" class="user img-fluid rounded" alt="imagen de usuario">
+                                {{ getUser().nombre_usuario}} 
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end">
-                                <a href="/prueba" class="dropdown-item">Perfil</a>
-                                <a href="#" class="dropdown-item">configuraciones</a>
+
+                                <a href="/prueba" class="dropdown-item"> 
+                                    ¡Hola, {{ getUser().nombre_usuario}} {{ getUser().apellido_usuario}}!
+                                </a>
+                                <a routerLink="registro-maquinaria" class="dropdown-item"> <i class="fa-solid fa-gear pe-2"></i>configuraciones</a>
+                                <a  routerLink="/login" class="dropdown-item" (click)="Sign_off()"> <i class="fa-solid fa-right-from-bracket pe-2"></i>cerrar sesión</a>
                             </div>
+
+                        
                         </li>
                     </ul>
                 </div>

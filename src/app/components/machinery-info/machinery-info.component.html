@@ -1,51 +1,152 @@
 <body>
+
     <main>
         <div class="container">
+
             <div class="row">
-                <div class="col-md-6 order-md-1">
-                    <div class="carousel-container" style="background-color: #fff; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); display: flex; flex-direction: column;">
-                        <div id="carouselExample" class="carousel carousel-dark slide" data-bs-ride="carousel">
-                            <div class="carousel-indicators">
-                                <button type="button" *ngFor="let imagePath of maquinaria.path; let i = index" [attr.data-bs-target]="'#carouselExample'" [attr.data-bs-slide-to]="i" [class.active]="i === 0"></button>
+                <!-- <img src="/assets/image/welcom.jpg" alt="" style="max-width: 100%; max-height: 100%;"> -->
+                <div class="col-md-6 order-md-1 ">
+                    <!-- <div class="col-md-6 order-md-1 " style="background-color: rgba(239, 22, 22, 0.901);"> -->
+
+                    <div style=" background-color: rgb(255, 255, 255); height: 450px; "
+                        class="d-flex justify-content-center p-5">
+                        <!-- <img src="/assets/image/welcom.jpg" alt="" style="max-width: 100%; max-height: 100%;"> -->
+
+                        <div id="carouselExample" class="carousel  carousel-dark slide" data-bs-ride="carousel">
+
+                            <div class="carousel-indicators indicador-negro mt-5 ">
+                                <button type="button" *ngFor="let imagePath of maquinaria.path; let i = index"
+                                    [attr.data-bs-target]="'#carouselExample'" [attr.data-bs-slide-to]="i"
+                                    [class.active]="i === 0"></button>
                             </div>
-                            <div class="carousel-inner">
-                                <div class="carousel-item" *ngFor="let imagePath of maquinaria.path; let first = first" [class.active]="first">
-                                    <div class="image-container" [style.backgroundImage]="'url(' + imagePath + ')'"></div>
+
+                            <div class="carousel-inner" style="background-color: rgb(255, 255, 255); width: 100%;  ">
+                                <div class="carousel-item" *ngFor="let imagePath of maquinaria.path; let first = first"
+                                    [class.active]="first" style="background-color: blueviolet;">
+                                    <!-- <img [src]="imagePath" class="d-block w-100" [alt]="'Slide ' + first"> -->
+                                    <img [src]="imagePath" class="d-block mx-auto" [alt]="'Slide ' + first"
+                                        style="max-width: 100%; max-height: 100%;">
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                                data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" ariahidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-6 order-md-2">
-                    <div class="description-container" >
-                        <h2>{{ maquinaria.nombre_maquina }}</h2>
-                        <p class="lead">{{ maquinaria.descripcion_maquina.substring(0, 200) }}{{ maquinaria.descripcion_maquina.length > 200 ? '...' : '' }}</p>
-                        <p class="lead precio" style="font-size: 2.5rem;">{{ maquinaria.precio_hora | currency:'$':'symbol':'1.0-0' }}</p>
-                        <p class="lead" *ngIf="maquinaria.modelo_maquina">{{ maquinaria.modelo_maquina }}</p>
-                        <div class="d-grid gap-3 col-10 mx-auto">
-                            <button type="button" class="btn btn-primary" style="background-color: #d1e7dd; color: #000000; border: none; font-weight: bold;">Reservar</button>
-                        </div>
-                    </div>
-                </div>
-                
 
-                <div class="col-md-12 order-md-3" >
-                    <div class="calendar-container" >
-                        <full-calendar [options]="calendarOptions"></full-calendar>
+                <div class="col-md-6 order-md-2" style="background-color: rgb(42, 165, 165);">
+                    <H2>{{ maquinaria.nombre_maquina}}</H2>
+                    <p class="lead">{{ maquinaria.descripcion_maquina }}</p>
+                    <p class="lead precio">{{ maquinaria.precio_hora | currency:'$':'symbol':'1.0-0' }}</p>
+                    <p class="lead" *ngIf="maquinaria.modelo_maquina">{{ maquinaria.modelo_maquina }}</p>
+                    <!--muestra si no esta vacio -->
+
+                    <div class="d-grid grap-3 col-10 mx-auto ">
+                        <button type="button" class="btn btn-primary">Reservar</button>
+                        <!--(click)="selectStudent(estudiante);" -->
                     </div>
                 </div>
-                
-                
+
+
+
+                <div class="col-12 order-md-3 p-3">
+
+                    <div class="row ">
+
+                        <div class="col-8" >
+                            <full-calendar [options]="calendarOptions"></full-calendar>
+                        </div>
+
+                        <div class=" col-3 " >
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
+                                Reservassr
+                            </button>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Reserva</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form [formGroup]="formCalendar" (submit)="enviarformlario()" id="frmCalendar">
+                        <!--id necesario para bton de reservar -->
+                        <div class="row">
+
+                            <div class="col-12 p-3">
+                                <select class="form-select form-select-lg mb-3 " formControlName="municipio"
+                                    aria-label="Default select example">
+                                    <option value="" disabled selected>departamento de destino</option>
+                                    <option value="Boyaca">Boyaca</option>
+                                    <option value="doss">Two</option>
+                                    <option value="tress">Three</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12 p-3">
+                                <select class="form-select" formControlName="departamento"
+                                    aria-label="Default select example">
+                                    <option value="" disabled selected>Municiopio de destino</option>
+                                    <option value="Toca">Toca</option>
+                                    <option value="dos">Two</option>
+                                    <option value="tres">Three</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12 p-3">
+                                <label for="start_date" class="form-label">Fecha de inicio</label>
+                                <input type="datetime-local" class="form-control" formControlName="start_date">
+                            </div>
+                            <div class="col-12  p-3">
+                                <label for="end_date" class="form-label">Fecha de entrega</label>
+                                <input type="datetime-local" class="form-control" formControlName="end_date">
+                            </div>
+
+                        </div>
+                    </form>
+
+                    {{formCalendar.status}}
+
+
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" form="frmCalendar"
+                        [disabled]="!formCalendar.valid">reservar</button>
+                </div>
             </div>
         </div>
-    </main>
+    </div>
+
+
 </body>

@@ -19,6 +19,7 @@ export class LoginComponent {
   formRegiUser: FormGroup;
   // modelUser = new User("NOprueba","ApellPrueb","cc","ddd","prueba@","A")
   modelUser: any;
+ 
 
 
 
@@ -28,8 +29,6 @@ export class LoginComponent {
     private toastr: ToastrService,
     private serviceLogin: LoginService,
     private router: Router
-
-
 
   ) {
     this.formRegiUser = this.formBuilder.group({
@@ -45,6 +44,7 @@ export class LoginComponent {
     }, {
       validators: this.passwordMatchValidator
     });
+    localStorage.removeItem('user');
   }
 
   passwordMatchValidator(formGroup: FormGroup) {
@@ -65,6 +65,7 @@ export class LoginComponent {
 
 
   onSubmit() {
+    console.log("ess")
     this.modelUser = new User(
       this.formRegiUser.value.user_name,
       this.formRegiUser.value.password,
@@ -76,7 +77,9 @@ export class LoginComponent {
       this.formRegiUser.value.correo_electronico,
       "C"
     );
+
     this.addUser()
+    console.log("ssssss")
   }
 
   login(email: string, contrasena: string) {
@@ -94,14 +97,13 @@ export class LoginComponent {
 
       (respuesta: any) => {
         console.log(respuesta);
-        if (respuesta.tipo_usuario === 'A') {
-          this.router.navigate(['/home']);
-        } else if (respuesta.tipo_usuario === 'C') {
-          this.router.navigate(['/dashboard-user']);
-        }
-
-        // if(respuesta)
-
+        let user  = respuesta
+        this.saveLocalStorage(user);  
+         if (respuesta.tipo_usuario === 'A') {
+           this.router.navigate(['/home']);
+         } else if (respuesta.tipo_usuario === 'C') {
+           this.router.navigate(['/dashboard-user']);
+         }
       },
       (error) => {
         this.toastr.error(error.error.mensaje);
@@ -126,6 +128,12 @@ export class LoginComponent {
 
 
   }
+  
+  saveLocalStorage(user:any){
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  
 
 
 
