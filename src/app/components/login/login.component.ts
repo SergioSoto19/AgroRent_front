@@ -31,6 +31,7 @@ export class LoginComponent {
     private router: Router
 
   ) {
+
     this.formRegiUser = this.formBuilder.group({
       nombre: ['', [Validators.required, Validators.pattern('^[A-Za-z]+$')]],
       apellido: ['', [Validators.required, Validators.pattern('^[A-Za-z]+$')]],
@@ -41,10 +42,12 @@ export class LoginComponent {
       correo_electronico: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
       vali_password: ['', [Validators.required]]
+
     }, {
       validators: this.passwordMatchValidator
     });
     localStorage.removeItem('user');
+    
   }
 
   passwordMatchValidator(formGroup: FormGroup) {
@@ -75,11 +78,13 @@ export class LoginComponent {
       this.formRegiUser.value.numero_documento,
       this.formRegiUser.value.numero_celular,
       this.formRegiUser.value.correo_electronico,
-      "C"
-    );
+      "C",
+      "nofoto1.jpg"
+      // "jose1.jpg"
+      // "sergio1.jpg"
 
+    );
     this.addUser()
-    console.log("ssssss")
   }
 
   login(email: string, contrasena: string) {

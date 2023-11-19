@@ -113,3 +113,38 @@ body {
   background: #fff
 }
 
+
+
+/// textarea
+ 
+
+
+.ctom-textarea {
+  color: #0a0a0a;
+  padding: 10.10px;
+  background: transparent;
+  border: 1.2px solid rgba(135, 133, 133, 0.5);
+  /* Color semi-transparente */
+  //border-bottom: 1px solid rgba(232, 227, 227, 0.2);
+  // margin-bottom: 20px;
+  //border: none;
+  outline: none;
+  border-radius: 5px;
+
+}
+
+
+.group textarea:focus~label {
+  top: -10px;
+  font-size: 13px;
+  background: #fff
+}
+
+// .group textarea:valid~label {
+//   top: -10px;
+//   font-size: 13px;
+//   background: #fff
+// }
+
+
+

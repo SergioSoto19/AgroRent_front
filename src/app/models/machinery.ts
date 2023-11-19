@@ -6,7 +6,7 @@ export class machinery{
         public categoria:string,
         public placa_maquina: string,
         public modelo_maquina: string,
-        public precio_hora : string,
+        public precio_hora : number,
         public path: string[]
     ){}
 }

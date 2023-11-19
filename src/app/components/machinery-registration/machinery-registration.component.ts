@@ -30,13 +30,14 @@ export class MachineryRegistrationComponent {
 
   ) {
     this.formRegiMachy = this.formBuilder.group({
-      nombreMaquina: ['', [Validators.required, Validators.pattern('^[A-Za-z]+$')]],
+      nombreMaquina: ['', [Validators.required]],
       descripcion: ['', [Validators.required]],
       categoria: ['', [Validators.required]],
       // placa: ['', [Validators.required]],
       // modelo:['', [Validators.required]],
       //
-      precio: ['', [Validators.required, Validators.pattern('^[0-9]+$')]]
+      precio: ['', [Validators.required, Validators.pattern('^[0-9]+(\.[0-9]+)?$')]]
+
 
 
     });
@@ -55,14 +56,18 @@ export class MachineryRegistrationComponent {
       this.modelo = this.formRegiMachy.value.moldeo;
     }
 
+    const precioString = this.formRegiMachy.value.precio;
+    // const precioNumerico = precioString.includes('.') ? parseFloat(precioString) : parseInt(precioString, 10);
+    const precioNumerico = parseFloat(precioString);
+
     this.model_machinery=new machinery(
-      "10023641",
+       this.get_localstorage(),
       this.formRegiMachy.value.nombreMaquina,
       this.formRegiMachy.value.descripcion,
       this.formRegiMachy.value.categoria,
       this.placa,
       this.modelo,
-      this.formRegiMachy.value.precio,
+      precioNumerico,
       paths
     );
     
@@ -75,15 +80,29 @@ export class MachineryRegistrationComponent {
     
     this.serviceUser.postRequest(this.model_machinery).subscribe(
       (respuesta: any) => {
-        this.toastr.success(respuesta.mensaje);
-
+        this.toastr.success(respuesta.mesanje);
       },
       (error) => {
-        this.toastr.error(error.error.mensaje);
-
+        if (error.status === 504) {
+          // Manejar el error 504 aquí
+          this.toastr.error('Tiempo de espera agotado Servidor de responde');
+        } else {
+          // Manejar otros errores
+          this.toastr.error(error.error.mesanje);
+        }
       }
+        
     )
+  }
 
+  get_localstorage(){
+    let userId = ''
+    const usuarioString = localStorage.getItem('user');
+    if (usuarioString !== null) {
+      const user = JSON.parse(usuarioString);
+      userId = user.documento_usuario
+    }
+    return userId
   }
 
 

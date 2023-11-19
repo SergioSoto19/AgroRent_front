@@ -18,11 +18,11 @@
 
                     <li class="sidebar-item">
                         <!-- <a routerLink="machinery-info/:id" class="sidebar-link"> -->
-                         <a routerLink= "catalogoo" class="sidebar-link">
-                             
-                           
+                        <a routerLink="catalogo" class="sidebar-link" (click)="enviarInfoUser()">
+                            <!-- "machinery-info/:id" -->
+
                             <i class="fa-solid fa-users pe-2"></i>
-                           Catalogo
+                            Catalogo
                         </a>
                     </li>
 
@@ -46,12 +46,34 @@
                             </li>
 
                             <li class="sidebar-item">
-                             <a routerLink="machinery-info/:id" class="sidebar-link">Inventario</a>   <!-- inve-->
+                                <a routerLink="inventario" class="sidebar-link">Inventario</a> <!-- inve-->
                             </li>
                         </ul>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <!-- <a routerLink="maquinarias" class="sidebar-link"> 
+                            <i class="fa-solid fa-train-subway pe-2"></i>
+                            Maquinarias
+                        </a>-->
 
 
+                        <a class="sidebar-link collapsed" data-bs-target="#reservas" data-bs-toggle="collapse"
+                            aria-expanded="false">
+                            <i class="fa-solid fa-list-check pe-2"></i>
+                            Reservas
+                        </a>
 
+                        <ul id="reservas" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+
+                            <li class="sidebar-item">
+                                <a routerLink="registro-maquinaria" class="sidebar-link">Mis solicitudes</a>
+                            </li>
+
+                            <li class="sidebar-item">
+                                <a routerLink="inventario" class="sidebar-link">Ofertas de alquiler</a> <!-- inve-->
+                            </li>
+                        </ul>
                     </li>
 
                 </ul>
@@ -72,20 +94,23 @@
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-icon pe-md-0" data-bs-toggle="dropdown">
-                                <img [src]="'/assets/image/Ima pruega de registros/usuarios/' + getUser().imagen" class="user img-fluid rounded" alt="imagen de usuario">
-                                {{ getUser().nombre_usuario}} 
+                                <img [src]="'/assets/image/Ima pruega de registros/usuarios/' + getUser().imagen"
+                                    class="user img-fluid rounded" alt="imagen de usuario">
+                                {{ getUser().nombre_usuario}}
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end">
 
-                                <a href="/prueba" class="dropdown-item"> 
+                                <a href="/prueba" class="dropdown-item">
                                     ¡Hola, {{ getUser().nombre_usuario}} {{ getUser().apellido_usuario}}!
                                 </a>
-                                <a routerLink="registro-maquinaria" class="dropdown-item"> <i class="fa-solid fa-gear pe-2"></i>configuraciones</a>
-                                <a  routerLink="/login" class="dropdown-item" (click)="Sign_off()"> <i class="fa-solid fa-right-from-bracket pe-2"></i>cerrar sesión</a>
+                                <a routerLink="registro-maquinaria" class="dropdown-item"> <i
+                                        class="fa-solid fa-gear pe-2"></i>configuraciones</a>
+                                <a routerLink="/login" class="dropdown-item" (click)="Sign_off()"> <i
+                                        class="fa-solid fa-right-from-bracket pe-2"></i>cerrar sesión</a>
                             </div>
 
-                        
+
                         </li>
                     </ul>
                 </div>
@@ -93,12 +118,12 @@
 
 
 
-            <div class=" mt-5 mx-5" >
-                 <router-outlet></router-outlet>  
+            <div class=" mt-5 mx-5">
+                <router-outlet></router-outlet>
             </div>
 
         </div>
 
-        
+
     </div>
 </body>

@@ -12,6 +12,12 @@
         "target": "http://localhost:3000",
         "secure": false
     }
+    ,
+    "/reservas/*": {
+        "target": "http://localhost:3000",
+        "secure": false
+    }
+
 
 }
 

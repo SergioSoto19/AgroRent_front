@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MachineryService} from 'src/app/services/machinery.service';
+import {CommunicationServiceService} from 'src/app/services/communication-service.service';
 
 @Component({
   selector: 'app-catalogue',
@@ -12,6 +13,7 @@ export class CatalogueComponent {
 
   constructor(
     private serviceUser: MachineryService,
+    private communicationService: CommunicationServiceService
   ){
 
   }
@@ -23,8 +25,6 @@ export class CatalogueComponent {
         ( respuesta: any) => {
           console.log(respuesta);
           this.res = respuesta
-
-          
         },
         (error) => {
          // this.toastr.error(error.error.mensaje);
@@ -33,6 +33,11 @@ export class CatalogueComponent {
       );
 
       console.log(this.res)
+    }
+
+    //comunicacion con el padre dasboar_use mediante servicio
+    onDetallesClicked(id: number) {
+      this.communicationService.enviarDetallesClicked(id);
     }
 
 }

@@ -8,6 +8,7 @@ export class User{
         public documento_usuario : string,
         public numero_celu_usuario: string,
         public correo_usuario: string,
-        public tipo_usuario: string
+        public tipo_usuario: string,
+        public path: string
     ){}
 }

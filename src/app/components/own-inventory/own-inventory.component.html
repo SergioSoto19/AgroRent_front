@@ -9,83 +9,17 @@
                         
                         <div class="content-title ">
                             <br>
-                            <h3 class="d-flex justify-content-center">Maquinarias</h3>
+                            <h3 class="d-flex justify-content-center"> My Inventario</h3>
                             <br>
                         </div>
 
                         <div class="row g-3 mt-3 mx-3">
-                            <!--
-                            <div class="col-sm-12 col-md-6 col-lg-3">
-                                <div class="input-group mb-3 ">
-                                    <div class="input-group-prepend">
-                                        <label class="input-group-text" for="inputGroupSelect01">Mostrar</label>
-                                    </div>
-                                    <select class="custom-select" id="inputGroupSelect01" #valorMostrar
-                                        (change)="cambiarPaginacion('mostrar',valorMostrar.value)">
-                                        <option value="5" selected>5</option>
-                                        <option value="10">10</option>
-                                        <option value="15">15</option>
-                                        <option value="20">20</option>
-                                    </select>
-                                </div>
-            
-                            </div>
- 
-                            <div class="col-sm-12 col-md-6 col-lg-3">
-
-                                <div class="input-group mb-3">
-            
-                                    <div class="input-group-prepend">
-                                        <label class="input-group-text" for="inputGroupSelect01">Ordenar por</label>
-                                    </div>
-            
-                                    <select class="custom-select" id="inputGroupSelect01" #valorColumna
-                                        (change)="cambiarPaginacion('columna',valorColumna.value) ">
-                                        <option value="codigo" selected>Codigo</option>
-                                        <option value="nombre">Nombre</option>
-                                        <option value="apellido">Apellido</option>
-                                        <option value="tipo_documento">Tipo de Documento</option>
-                                        <option value="numero_documento">Numero de Documento</option>
-                                        <option value="estado">Estado</option>
-                                        <option value="genero">Genero</option>
-                                    </select>
-                                </div>
-            
-            
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-lg-3">
-                                <div class="input-group mb-3">
-            
-                                    <div class="input-group-prepend">
-                                        <label class="input-group-text" for="inputGroupSelect01">Tipo de ordenamiento</label>
-                                    </div>
-            
-                                    <select class="custom-select" id="inputGroupSelect01" #valorOrdenamiento
-                                        (change)="cambiarPaginacion('ordenamiento',valorOrdenamiento.value)">
-                                        <option value="Ascendente" selected>Ascendente</option>
-                                        <option value="Descendente">Descendente</option>
-                                    </select>
-                                </div>
-            
-                            </div>
-            
-                            <div class="col-sm-12 col-md-6 col-lg-3">
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend bg-light">
-                                        <span class="input-group-text" id="basic-addon1">Busqueda</span>
-                                    </div>
-                                    <input #busqueda type="text" class="form-control" placeholder="..." aria-label="Username"
-                                        aria-describedby="basic-addon1">
-                                    <button (click)="cambiarPaginacion('busqueda',busqueda.value)">Buscar</button>
-                                </div>
-                            </div>
-                         -->
                             <div class="col-12">
                                 <div class="table-responsive">
                                     <table class="table table-hover">
                                         <thead class="table-success">
                                             <tr>
-                                                <th scope="col">id maquinaria</th>
+                                                <th scope="col">id maquinariassss</th>
                                                 <th scope="col">Imagen</th>
                                                 <th scope="col">Nombre de maquina</th>
                                                 <!-- <th scope="col">dueño</th> -->
@@ -117,7 +51,8 @@
                                                 <!-- <td>{{estudiante.id_usuario}}</td> -->
                                                 <!-- <td>{{estudiante.descripcion_maquina}}</td> -->
                                                 <td>{{estudiante.modelo_maquina}}</td>
-                                                <td>{{estudiante. precio_hora}}</td>
+                                                <td>{{ formatCurrencyValue(estudiante.precio_hora) }}</td>
+                                                <!-- <td>{{estudiante. precio_hora}}</td> -->
                                            
                                                 
 
@@ -150,3 +85,4 @@
         </div>
     </div>
 </body>
+

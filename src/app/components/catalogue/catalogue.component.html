@@ -4,27 +4,33 @@
             <div class="col px-3" *ngFor="let maquinaria of res" >
 
                 <div class="card shadow-sm">
-                   <img [src]="maquinaria.path ? '/assets/image/Ima pruega de registros/Maquinarias/'+ maquinaria.path[0] : '/assets/image/no foto1.jpg'" alt="{{maquinaria.nombre_maquina}}" class="d-block w-100">
-                    <div class="card-body px-5">
-                        <h5 class="card-title">{{maquinaria.nombre_maquina}}</h5> <!--titulo  -->
+                   <img [src]="maquinaria.path ? '/assets/image/Ima pruega de registros/Maquinarias/'+ maquinaria.path[0] : '/assets/image/no foto1.jpg'" 
+                   alt="{{maquinaria.nombre_maquina}}" 
+                     class="card-img-top img-fluid"      
+                   style="object-fit: cover; height: 200px;"> <!-- la altura mínima que ocupará la imagen dentro de cada tarjeta -->
+                  <!-- class="card-img-top img-fluid"  no tan necesario casles de bostrab para que ocupe la parte superior de la card y y que la imagen se responsive -->
+                           
 
-                        <p class="card-text"> precio hora: {{maquinaria.precio_hora}}</p> <!--precio  -->
+                    <div class="card-body px-5">
+                        <h5 class="card-title">{{maquinaria.nombre_maquina}}</h5> 
+
+                        <p class="card-text"> precio hora: {{maquinaria.precio_hora}}</p> 
 
                         <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
+
+                         <!--   <div class="btn-group"> // sin enviarlo al dashboard-user mediante servicio
                                 <a [routerLink]="'/machinery-info/' + maquinaria.id_maquinaria" class="btn btn-primary">Detalles</a>
-                            </div>
+                            </div>-->
+
+                            <div class="btn-group">
+                                <a (click)="onDetallesClicked(maquinaria.id_maquinaria)" class="btn btn-primary">Detalles</a>
+                              </div>
                         </div>
                     </div>
 
                     
                 </div>
             </div>
-
-
-            
-
-
         </div>
 
     <!-- </div> -->

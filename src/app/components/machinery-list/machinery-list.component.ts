@@ -19,9 +19,7 @@ export class MachineryListComponent {
 
   constructor(
     private serviceUser: MachineryService,
-  ){
-
-  }
+  ){}
 
   ngOnInit(): void {
 

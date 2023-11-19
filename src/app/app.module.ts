@@ -20,6 +20,7 @@ import { CatalogueComponent } from './components/catalogue/catalogue.component';
 import { MachineryInfoComponent } from './components/machinery-info/machinery-info.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { OwnInventoryComponent } from './components/own-inventory/own-inventory.component';
 
 @NgModule({
   
@@ -35,6 +36,7 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     DashboardUserComponent,
     CatalogueComponent,
     MachineryInfoComponent,
+    OwnInventoryComponent,
     
   ],
 
