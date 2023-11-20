@@ -25,6 +25,8 @@ import { OwnMachineryRequestsComponent } from './components/own-machinery-reques
 import { OffersOfferedRentalComponent } from './components/offers-offered-rental/offers-offered-rental.component';
 import { RentalsRequestComponent } from './components/rentals-request/rentals-request.component';
 import { OfferedRentalsComponent } from './components/offered-rentals/offered-rentals.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+
 
 @NgModule({
   
@@ -45,6 +47,7 @@ import { OfferedRentalsComponent } from './components/offered-rentals/offered-re
     OffersOfferedRentalComponent,
     RentalsRequestComponent,
     OfferedRentalsComponent,
+    WelcomeComponent,
     
   ],
 

@@ -15,6 +15,7 @@ import {OwnMachineryRequestsComponent } from './components/own-machinery-request
 import {OffersOfferedRentalComponent } from './components/offers-offered-rental/offers-offered-rental.component';
 import {RentalsRequestComponent} from './components/rentals-request/rentals-request.component';
 import {OfferedRentalsComponent} from './components/offered-rentals/offered-rentals.component';
+import {WelcomeComponent} from './components/welcome/welcome.component';
 
 
 
@@ -31,6 +32,7 @@ const routes: Routes = [
     path: 'dashboard-user'
     , component: DashboardUserComponent,
     children: [
+      { path: 'home', component:WelcomeComponent },
       { path: 'registro-maquinaria', component: MachineryRegistrationComponent },
       { path: 'inventario', component: OwnInventoryComponent},
       { path: 'catalogo', component: CatalogueComponent },
@@ -45,6 +47,7 @@ const routes: Routes = [
   {
     path: 'home', component: HomeComponent,
     children: [
+      { path: 'registro-maquinaria', component: MachineryRegistrationComponent },
       { path: 'usuarios', component: UserListComponent },
       { path: 'maquinarias', component: MachineryListComponent },
       { path: 'prueba', component: SidebarAdminComponent },
