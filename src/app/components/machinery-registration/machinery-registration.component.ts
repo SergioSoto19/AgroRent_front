@@ -19,8 +19,8 @@ export class MachineryRegistrationComponent {
   fileSelected: any;
   files: File[] = [];
   imagenSeleccionada = false
-  modelo = "v";
-  placa = "v";
+  modelo = "";
+  placa = "";
 
   constructor(
     private serviceUser: MachineryService,
@@ -84,10 +84,8 @@ export class MachineryRegistrationComponent {
       },
       (error) => {
         if (error.status === 504) {
-          // Manejar el error 504 aquí
-          this.toastr.error('Tiempo de espera agotado Servidor de responde');
+          this.toastr.error('Tiempo de espera agotado, Servidor no ressponde');
         } else {
-          // Manejar otros errores
           this.toastr.error(error.error.mesanje);
         }
       }

@@ -1,15 +1,13 @@
-// import { Component } from '@angular/core';
-import { MachineryService } from 'src/app/services/machinery.service';
-import { formatCurrency } from '@angular/common';
-import { Component, Inject, LOCALE_ID } from '@angular/core';
+import { Component } from '@angular/core';
+import { ReservesService} from 'src/app/services/reserves.service';
+
 
 @Component({
-  selector: 'app-own-inventory',
-  templateUrl: './own-inventory.component.html',
-  styleUrls: ['./own-inventory.component.scss']
+  selector: 'app-own-machinery-requests',
+  templateUrl: './own-machinery-requests.component.html',
+  styleUrls: ['./own-machinery-requests.component.scss']
 })
-
-export class OwnInventoryComponent {
+export class OwnMachineryRequestsComponent {
 
   itemsPerPage = 5
   res: any = []
@@ -19,24 +17,31 @@ export class OwnInventoryComponent {
   totalPaginas = 1
   paginaActual = 1
 
+
+
   constructor(
-    private machineryService: MachineryService,
-    @Inject(LOCALE_ID) private locale: string
+    private ReserveService: ReservesService,
+
   ) { }
 
   ngOnInit(): void {
-    this.getOwnInventory()
+    this.getReserveRequests()
   }
 
 
-  getOwnInventory() {
+  getReserveRequests() {
     const idUser = this.get_localstorage();
-      this.machineryService.getRequestfilterUserDue(idUser).subscribe(data => {
-        this.res= data
+    // const idUser = 34
+   // console.log("id usuario", idUser)
+      this.ReserveService.getRequestfilterUser(idUser).subscribe(data => {
+         this.res= data
+        console.log("reservas solicitude ", data)
       }, error => {
+        // this.toastr.error(error.error.mensaje);
         console.log('ERROR', error);
       });
   }
+
   
 
   get_localstorage() {
@@ -49,12 +54,17 @@ export class OwnInventoryComponent {
     return userId
   }
 
-  //da formato a precio
-  formatCurrencyValue(value: number): string {
-    return formatCurrency(value, this.locale, '$', 'COP', '1.3-3');
+   // Método para formatear la fecha de  "2023-11-23T09:40"
+   formatFechaHora(fechaHora: string): string {
+    const fecha = new Date(fechaHora);
+    const dia = fecha.getDate().toString().padStart(2, '0');
+    const mes = (fecha.getMonth() + 1).toString().padStart(2, '0');
+    const anio = fecha.getFullYear();
+  
+    return `${anio}-${mes}-${dia}`;
   }
 
-
+  //tabla movi
   cambiarPaginacion(key: string, event: any) {
     if (key == 'mostrar')
       this.itemsPerPage = Number(event)
@@ -75,7 +85,7 @@ export class OwnInventoryComponent {
 
     console.log("columna es:", this.columna, "ordenamiento es:", this.ordenamiento, "busqueda es ", this.busqueda),
 
-      this.machineryService.getRequest().subscribe(data => {  // tener en cuenta por los paraetro la busqueda 
+      this.ReserveService. getRequestfilter(1).subscribe(data => {  // tener en cuenta por los paraetro la busqueda 
         console.log('Data', data);
       });
 
@@ -104,6 +114,5 @@ export class OwnInventoryComponent {
     }
 
   }
-
 
 }

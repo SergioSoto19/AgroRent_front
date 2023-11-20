@@ -52,26 +52,42 @@
                     </li>
 
                     <li class="sidebar-item">
-                        <!-- <a routerLink="maquinarias" class="sidebar-link"> 
-                            <i class="fa-solid fa-train-subway pe-2"></i>
-                            Maquinarias
-                        </a>-->
-
-
+         
                         <a class="sidebar-link collapsed" data-bs-target="#reservas" data-bs-toggle="collapse"
                             aria-expanded="false">
-                            <i class="fa-solid fa-list-check pe-2"></i>
+                            <!-- <i class="fa-solid fa-list-check pe-2"></i> -->
                             Reservas
                         </a>
 
                         <ul id="reservas" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
 
                             <li class="sidebar-item">
-                                <a routerLink="registro-maquinaria" class="sidebar-link">Mis solicitudes</a>
+                                <a routerLink="MyRequests" class="sidebar-link">Mis solicitudes</a>
                             </li>
 
                             <li class="sidebar-item">
-                                <a routerLink="inventario" class="sidebar-link">Ofertas de alquiler</a> <!-- inve-->
+                                <a routerLink="MownRentalOffers" class="sidebar-link">Ofertas de reservas</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li class="sidebar-item">
+         
+                        <a class="sidebar-link collapsed" data-bs-target="#alquiler" data-bs-toggle="collapse"
+                            aria-expanded="false">
+                            <i class="fa-solid fa-right-left pe-2"></i>
+                            Alquileres
+                        </a>
+
+                        <ul id="alquiler" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+
+                            <li class="sidebar-item">
+                                <a routerLink="RentalsRequest" class="sidebar-link">Mis solicitudes de alquiler</a>
+                            </li>
+
+                            <li class="sidebar-item">
+                                <a routerLink="OfferedRentals" class="sidebar-link">Ofertas de alquiler</a> <!-- inve-->
                             </li>
                         </ul>
                     </li>

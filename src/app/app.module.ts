@@ -21,6 +21,10 @@ import { MachineryInfoComponent } from './components/machinery-info/machinery-in
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { OwnInventoryComponent } from './components/own-inventory/own-inventory.component';
+import { OwnMachineryRequestsComponent } from './components/own-machinery-requests/own-machinery-requests.component';
+import { OffersOfferedRentalComponent } from './components/offers-offered-rental/offers-offered-rental.component';
+import { RentalsRequestComponent } from './components/rentals-request/rentals-request.component';
+import { OfferedRentalsComponent } from './components/offered-rentals/offered-rentals.component';
 
 @NgModule({
   
@@ -37,6 +41,10 @@ import { OwnInventoryComponent } from './components/own-inventory/own-inventory.
     CatalogueComponent,
     MachineryInfoComponent,
     OwnInventoryComponent,
+    OwnMachineryRequestsComponent,
+    OffersOfferedRentalComponent,
+    RentalsRequestComponent,
+    OfferedRentalsComponent,
     
   ],
 

@@ -1,0 +1,100 @@
+<p>Tabla de solicitudes que me llegan poara aceptar</p>
+
+<body>
+    <div class="wrapper">
+        <!-- contenido  -->
+        <div class="main">
+            <div>
+                <div class="contenido de tabla usuarios ">
+                    <!-- <app-progress-bar> </app-progress-bar>  -->
+                    <div class="contenido">
+
+                        <div class="content-title ">
+                            <br>
+                            <h3 class="d-flex justify-content-center">Reservas solicitantes</h3>
+                            <br>
+                        </div>
+
+                        <div class="row g-3 mt-3 mx-3">
+                            <div class="col-12">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead class="table-success">
+                                            <tr>
+                                                <th scope="col">id Reserva</th>
+                                                <th scope="col">Titilo</th>
+                                                <th scope="col">Imagen</th>
+                                                <th scope="col">Fecha Inicio</th>
+                                                <th scope="col">Fecha Fin</th>
+                                                <th scope="col">Fecha Fin</th>
+                                                <th scope="col">Opción</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <!-- <tr *ngFor="let student of res" (click)="selectStudent (student)"> -->
+                                            <tr
+                                                *ngFor="let reserves of res | paginate: {itemsPerPage:itemsPerPage, currentPage:paginaActual}; let i =index">
+
+                                                <!-- <th scope="row">{{estudiante.codigo}}</th> -->
+                                                <td>{{reserves.id_reserva}}</td>
+                                                <td>
+                                                    <div class="image-cropper">
+                                                        <img [src]="reserves.path ? '/assets/image/Ima pruega de registros/Maquinarias/'+ reserves.path[0] : 
+                                                        '/assets/image/no foto1.jpg'" alt="{{reserves.nombre_maquina}}"
+                                                            width="50" height="50">
+
+                                                    </div>
+                                                </td>
+
+                                                
+                                                <td>{{ formatFechaHora(reserves.fecha_hra_inicio) }}</td>
+                                                <td>{{ formatFechaHora(reserves.facha_hora_fin) }}</td>
+                                                <td>{{ formatFechaHora(reserves.facha_hora_fin) }}</td>
+
+                                       
+                                                <td>{{reserves.validacion_reserva}}</td>
+                                                <td>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <select id="desecisionReser" [(ngModel)]="reserveOption"
+                                                            class="form-select" aria-label="Default select example">
+                                                            <option value="" disabled>Pendiente</option>
+                                                            <option value="A">Aceptar</option>
+                                                            <option value="R">Rechazar</option>
+                                                        </select>
+                                                        </div>
+
+                                                        <div class="col">
+                                                            <button type="button" class="btn btn-outline-success" (click)="updateReservationStatus(reserves.id_reserva, reserveOption)">Enviar</button>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                   
+
+                                                   
+
+
+                                                </td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="pagination">
+                                    <div class="">Pagina {{paginaActual}} de {{totalPaginas}}</div>
+                                    <div class=" "><pagination-controls (pageChange)="paginaActual = $event"
+                                            [responsive]="true"></pagination-controls>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

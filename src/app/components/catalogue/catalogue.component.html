@@ -1,37 +1,72 @@
 <body>
     <!-- <div class="container"> -->
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4  g-3 p-4" >
-            <div class="col px-3" *ngFor="let maquinaria of res" >
 
-                <div class="card shadow-sm">
-                   <img [src]="maquinaria.path ? '/assets/image/Ima pruega de registros/Maquinarias/'+ maquinaria.path[0] : '/assets/image/no foto1.jpg'" 
-                   alt="{{maquinaria.nombre_maquina}}" 
-                     class="card-img-top img-fluid"      
-                   style="object-fit: cover; height: 200px;"> <!-- la altura mínima que ocupará la imagen dentro de cada tarjeta -->
-                  <!-- class="card-img-top img-fluid"  no tan necesario casles de bostrab para que ocupe la parte superior de la card y y que la imagen se responsive -->
-                           
+    <div class="content-title ">
+        <br>
+        <h3 class="d-flex justify-content-center">Catalogo</h3>
+        <br>
+    </div>
 
-                    <div class="card-body px-5">
-                        <h5 class="card-title">{{maquinaria.nombre_maquina}}</h5> 
+    <div class=" row p-3 ">
+        <div class="col-9"><br></div>
+        <div class="col-2 ">
+            <select id="categoria" [(ngModel)]="categoriaSeleccionada" class="form-select"
+                aria-label="Default select example">
+                <i class="fa-solid fa-magnifying-glass p-2"></i>
+                <option value="" disabled>filtrar por categoria</option>
+                <option value="todo">Todo</option>
+                <option value="Tractor">Tractores</option>
+                <option value="Cosechadoras">Cosechadoras</option>
+                <option value="Tolva">Tolvas</option>
+                <option value="cargadora de caña">Cargadoras de caña</option>
+                <option value="Cosechadora de caña">Cosechadoras de caña</option>
+            </select>
+        </div>
 
-                        <p class="card-text"> precio hora: {{maquinaria.precio_hora}}</p> 
+        <div class="col-1">
+            <a (click)="updateInfoCatalogue()" class="sidebar-link">
+                <i class="fa-solid fa-magnifying-glass pe-2"></i></a>
+        </div>
+    </div>
 
-                        <div class="d-flex justify-content-between align-items-center">
 
-                         <!--   <div class="btn-group"> // sin enviarlo al dashboard-user mediante servicio
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4  g-3 p-4">
+
+
+
+
+        <div class="col px-3" *ngFor="let maquinaria of res">
+
+            <div class="card shadow-sm">
+                <img [src]="maquinaria.path ? '/assets/image/Ima pruega de registros/Maquinarias/'+ maquinaria.path[0] : '/assets/image/no foto1.jpg'"
+                    alt="{{maquinaria.nombre_maquina}}" class="card-img-top img-fluid"
+                    style="object-fit: cover; height: 200px;">
+                <!-- la altura mínima que ocupará la imagen dentro de cada tarjeta -->
+                <!-- class="card-img-top img-fluid"  no tan necesario casles de bostrab para que ocupe la parte superior de la card y y que la imagen se responsive -->
+
+
+                <div class="card-body px-5">
+                    <h5 class="card-title">{{maquinaria.nombre_maquina}}</h5>
+
+                    <p class="card-text"> precio hora: {{maquinaria.precio_hora}}</p>
+
+                    <div class="d-flex justify-content-between align-items-center">
+
+                        <!--   <div class="btn-group"> // sin enviarlo al dashboard-user mediante servicio
                                 <a [routerLink]="'/machinery-info/' + maquinaria.id_maquinaria" class="btn btn-primary">Detalles</a>
                             </div>-->
 
-                            <div class="btn-group">
-                                <a (click)="onDetallesClicked(maquinaria.id_maquinaria)" class="btn btn-primary">Detalles</a>
-                              </div>
+                        <div class="btn-group">
+                            <a (click)="onDetallesClicked(maquinaria.id_maquinaria)"
+                                class="btn btn-primary">Detalles</a>
                         </div>
                     </div>
-
-                    
                 </div>
+
+
             </div>
         </div>
+    </div>
 
     <!-- </div> -->
 </body>

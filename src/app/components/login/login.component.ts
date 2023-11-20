@@ -111,8 +111,11 @@ export class LoginComponent {
          }
       },
       (error) => {
-        this.toastr.error(error.error.mensaje);
-        // console.error(error.error.mensaje);
+        if (error.status === 504) {
+          this.toastr.error('Tiempo de espera agotado, Servidor no ressponde');
+        } else {
+          this.toastr.error(error.error.mensaje);
+        }
 
       }
     );
@@ -123,10 +126,13 @@ export class LoginComponent {
     this.serviceUser.postRequest(this.modelUser).subscribe(
       (respuesta: any) => {
         this.toastr.success(respuesta.mensaje);
-
       },
       (error) => {
-        this.toastr.error(error.error.mensaje);
+        if (error.status === 504) {
+          this.toastr.error('Tiempo de espera agotado, Servidor no ressponde');
+        } else {
+          this.toastr.error(error.error.mensaje);
+        }
 
       }
     );

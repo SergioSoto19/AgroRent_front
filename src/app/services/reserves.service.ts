@@ -9,14 +9,14 @@ export class ReservesService {
 
   constructor(private http: HttpClient) { }
 
-
+  //peticion id maquinaria
   getRequestfilter(id: number): Observable<any> {
     // Construir los parámetros de la solicitud
     const params = new HttpParams().set('id', id.toString());
     return this.http.get('reservas/getReserve', { params });
   }
 
-  
+
   public postRequest(body: any): Observable<any> {
     console.log(body)
     let headers = new HttpHeaders({
@@ -24,5 +24,21 @@ export class ReservesService {
     })
     return this.http.post('reservas/createReserve', body, { 'headers': headers });
   }
+
+  //peticion segun id usuario soliti reserv
+  getRequestfilterUser(id: number): Observable<any> {
+    const params = new HttpParams().set('id', id.toString());
+    return this.http.get('reservas/filterIdReserveUser', { params });
+
+
+  }
+  //peticion ofertas por aceptar solicitudes que envia
+  getRequestfilterUserAccepted(id: number): Observable<any> {
+    const params = new HttpParams().set('id', id.toString());
+    return this.http.get('reservas/filterRequested', { params });
+  }
 }
+
+
+
 
