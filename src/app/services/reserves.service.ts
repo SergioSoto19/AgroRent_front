@@ -37,6 +37,16 @@ export class ReservesService {
     const params = new HttpParams().set('id', id.toString());
     return this.http.get('reservas/filterRequested', { params });
   }
+
+  //actualizar estado 
+  putEstadoRequestfilterUserAccepted(id: number, estado: string): Observable<any> {
+    const params = new HttpParams()
+      .set('id', id.toString())
+      .set('estado', estado);
+  
+    return this.http.put('reservas/changeStatus', {}, { params });
+  }
+  
 }
 
 

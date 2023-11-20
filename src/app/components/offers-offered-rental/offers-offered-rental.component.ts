@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ReservesService} from 'src/app/services/reserves.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-offers-offered-rental',
@@ -15,11 +16,13 @@ export class OffersOfferedRentalComponent {
   busqueda = ''
   totalPaginas = 1
   paginaActual = 1
-  reserveOption: string = '';
+  reserveOption: string = 'P';
+  
 
 
   constructor(
     private ReserveService: ReservesService,
+    private toastr: ToastrService,
 
   ) { }
 
@@ -61,7 +64,20 @@ export class OffersOfferedRentalComponent {
   updateReservationStatus(idReserva: number, reserveStatus: string){
     console.log(idReserva)
     console.log(reserveStatus)
+
+    this.ReserveService.putEstadoRequestfilterUserAccepted(idReserva,reserveStatus).subscribe(data => {
+      this.res= data
+      this.toastr.success(data.mensaje);
+      console.log("estado de actualizaicon ", data)
+      this.ngOnInit();
+    }, error => {
+      // this.toastr.error(error.error.mensaje);
+      console.log('ERROR', error);
+      this.toastr.error(error.error.mensaje);
+    });
+
   }
+
 
   //tabla movi
   cambiarPaginacion(key: string, event: any) {
