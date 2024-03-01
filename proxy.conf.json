@@ -1,20 +1,20 @@
 {
     "/api/*": {
-        "target": "http://54.241.49.212:3000",
+        "target": "http://13.56.80.190:3000",
         "secure": false
     }
     ,"/maquinaria/*": {
-        "target": "http://54.241.49.212:3000",
+        "target": "http://13.56.80.190:3000",
         "secure": false
     }
     ,
     "/listUser/*": {
-        "target": "http://54.241.49.212:3000",
+        "target": "http://13.56.80.190:3000",
         "secure": false
     }
     ,
     "/reservas/*": {
-        "target": "http://54.241.49.212:3000",
+        "target": "http://13.56.80.190:3000",
         "secure": false
     }
 
