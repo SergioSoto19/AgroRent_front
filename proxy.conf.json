@@ -1,25 +1,25 @@
 {
     "/api/*": {
-        "target": "http://54.241.129.117:3000",
+        "target": "http://13.57.199.207:3000",
         "secure": false
     }
     ,"/maquinaria/*": {
-        "target": "http://54.241.129.117:3000",
+        "target": "http://13.57.199.207:3000",
         "secure": false
     }
     ,
     "/listUser/*": {
-        "target": "http://54.241.129.117:3000",
+        "target": "http://13.57.199.207:3000",
         "secure": false
     }
     ,
     "/reservas/*": {
-        "target": "http://54.241.129.117:3000",
+        "target": "http://13.57.199.207:3000",
         "secure": false
     }
     ,
     "/rent/*": {
-        "target": "http://localhost:3000",
+        "target": "http://13.57.199.207:3000",
         "secure": false
     }
 

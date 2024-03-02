@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api_url: 'http://54.241.129.117:3000',
+  api_url: 'http://13.57.199.207:3000',
   // api_imagenes: ' https://wtc7hiffe5.execute-api.us-east-2.amazonaws.com/dev/imagenes',
   // api_authorizer: ''
 };
