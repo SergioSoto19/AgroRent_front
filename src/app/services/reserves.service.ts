@@ -46,6 +46,10 @@ export class ReservesService {
   
     return this.http.put('reservas/changeStatus', {}, { params });
   }
+
+  public getReserves(): Observable<any> {
+    return this.http.get('reservas/getAllReserves');
+  }
   
 }
 

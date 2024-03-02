@@ -1,19 +1,17 @@
 <body>
-
-
-
     <div class="wrapper">
-        <div>
+        <!-- contenido  -->
+        <div class="main">
             <div>
                 <div class="contenido de tabla usuarios ">
                     <!-- <app-progress-bar> </app-progress-bar>  -->
                     <div class="contenido">
+                        
                         <div class="content-title ">
                             <br>
-                            <h3 class="d-flex justify-content-center">Usuarios</h3>
+                            <h3 class="d-flex justify-content-center">Reservas</h3>
                             <br>
                         </div>
-
 
                         <div class="row g-3 mt-3 mx-3">
                             <!--
@@ -87,69 +85,64 @@
                                     <table class="table table-hover">
                                         <thead class="table-success">
                                             <tr>
-                                                <th scope="col">Imagen</th>
-                                                <th scope="col">Tipo de documento</th>
-                                                <th scope="col">Numero de documeto</th>
-                                                <th scope="col">Nombre</th>
-                                                <th scope="col">Apellido</th>
-                                                <th scope="col">Username</th>
-                                                <th scope="col">Numero de celular</th>
-                                                <th scope="col">Correo electronico</th>
-                                                <th scope="col">tipo de usuario</th>
-                                                <th scope="col">Estado</th>
-
+                                                <th scope="col">Id reserva</th>
+                                                <!-- <th scope="col">dueño</th> -->
+                                                <!-- <th scope="col">descripcion</th> -->
+                                                <th scope="col" style="width:110px">Fecha inicio</th>
+                                                <th scope="col" style="width:110px">Hora inicio</th>    
+                                                <th scope="col" style="width:110px">Fecha fin</th>
+                                                <th scope="col" style="width:110px">Hora fin </th>
+                                                <th scope="col">Estado reserva</th>
                                                 <th scope="col">Editar</th>
-                                                <th scope="col">Inabilitar</th>
+                                                <th scope="col">Cancelar</th>
                                             </tr>
                                         </thead>
-
+            
                                         <tbody>
                                             <!-- <tr *ngFor="let student of res" (click)="selectStudent (student)"> -->
                                             <tr
                                                 *ngFor="let estudiante of res | paginate: {itemsPerPage:itemsPerPage, currentPage:paginaActual}; let i =index">
-
+                                                
                                                 <!-- <th scope="row">{{estudiante.codigo}}</th> -->
-
-                                                <td>
-                     
-
+                                                <td>{{estudiante.id_reserva}}</td>
+                                                <!-- <td>
                                                     <div class="image-cropper">
-                                                        
-                                                        <img [src]="estudiante.path ? '/assets/image/Ima pruega de registros/usuarios/'+ estudiante.path : 
+                                                        <img [src]="estudiante.path ? '/assets/image/Ima pruega de registros/Maquinarias/'+ estudiante.path[0] : 
                                                         '/assets/image/no foto1.jpg'" alt="{{estudiante.nombre_maquina}}"  width="50" height="50">
 
                                                     </div>
-
-
-
-                                                </td>
+                                                </td> -->
+            
                                             
-                            
-                                                <td>{{estudiante.tipo_documento}}</td>
-                                                <td>{{estudiante.documento_usuario}}</td>
-                                                <td>{{estudiante.nombre_usuario}}</td>
-                                                <td>{{estudiante.apellido_usuario}}</td>
-                                                <td>{{estudiante.nombre_user}}</td>
-                                                <td>{{estudiante. numero_celu_usuario}}</td>
-                                                <td>{{estudiante.correo_usuario}}</td>
-                                                <td>{{estudiante.tipo_usuario}}</td>
-                                                <td>{{estudiante.estado_usuario}}</td>
+                                                <!-- <td>{{estudiante.id_usuario}}</td> -->
+                                                <!-- <td>{{estudiante.descripcion_maquina}}</td> -->
+                                                <td>{{formatFechaHora(estudiante.fecha_hra_inicio)[0]}}</td>
+                                                <td>{{formatFechaHora(estudiante.fecha_hra_inicio)[1]}}</td>
+                                                <td>{{formatFechaHora(estudiante.facha_hora_fin)[0]}}</td>
+                                                <td>{{formatFechaHora(estudiante.facha_hora_fin)[1]}}</td>
+                                            
 
+                                                
+                                                <td>
+                                                    {{ estudiante.validacion_reserva === 'A' ? 'Aceptada' : (estudiante.validacion_reserva === 'R' ? 'Rechazada' : 'Pendiente') }}
+                                                    </td>
+                                           
+                                                
 
                                                 <td>
-                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                        data-bs-target="#modificar-estudiante">Editar</button>
+                                                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" 
+                                                    data-bs-target="#modificar-estudiante">Editar</button>
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-danger">Inabilitar</button>
+                                                 <button type="button" class="btn btn-danger" >Cancelar</button> 
                                                 </td>
                                             </tr>
                                         </tbody>
-
+            
                                     </table>
                                 </div>
                             </div>
-
+            
                             <div class="col-12">
                                 <div class="pagination">
                                     <div class="">Pagina {{paginaActual}} de {{totalPaginas}}</div>

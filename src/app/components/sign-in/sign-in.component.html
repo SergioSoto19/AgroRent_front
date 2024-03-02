@@ -1,1 +1,149 @@
-<p>sign-in works!</p>
+<body>
+    <div class="modal-body"> 
+    <form [formGroup]="formRegiUser" id="frmRcursoOne" (submit)="onSubmit()">
+        <fieldset>
+            <div class="row">
+    
+    
+                <div class=" group col-6 mb-4">
+                    <input type="text" id="nombre" formControlName="nombre" class="ctom-imput"
+                        required="" placeholder="" autocomplete="off">
+                    <label for="nombre" class="label"><Noscript></Noscript>Nombre</label>
+                    
+    
+                    <div class="alert alert-danger"
+                        *ngIf="formRegiUser.controls['nombre'].invalid && formRegiUser.controls['nombre'].touched">
+                        <div *ngIf="formRegiUser.controls['nombre'].errors?.['required']">El nombre
+                            es
+                            obligatoio </div>
+                        <div *ngIf="formRegiUser.controls['nombre'].errors?.['pattern']">No se
+                            aceptan
+                            numeros
+                        </div>
+                    </div>
+                </div>
+    
+                <div class=" group col-6 mb-4">
+                    <!-- <label for="apellido" class="form-label">Apellido</label> -->
+                    <input type="text" id="apellido" formControlName="apellido" class="ctom-imput"
+                        required="" autocomplete="off">
+                    <label for="nombre" class="label"><Noscript></Noscript>Apellido</label>
+    
+                    <div class="alert alert-danger"
+                        *ngIf="formRegiUser.controls['apellido'].invalid && formRegiUser.controls['apellido'].touched">
+                        <div *ngIf="formRegiUser.controls['apellido'].errors?.['required']">El apellido
+                            es
+                            obligatoio </div>
+                        <div *ngIf="formRegiUser.controls['apellido'].errors?.['pattern']">No se aceptan
+                            numeros
+                        </div>
+                    </div>
+                </div>
+    
+    
+                <div class="  group col-12 mb-4">
+                    <input type="text" formControlName="user_name" id="user_namer" class="ctom-imput"
+                        required="" autocomplete="off">
+                        <label for="nombre" class="label"><Noscript></Noscript>Nombre de usuario</label>
+    
+    
+                    <div class="alert alert-danger"
+                        *ngIf="formRegiUser.controls['user_name'].invalid && formRegiUser.controls['user_name'].touched">
+                        <div *ngIf="formRegiUser.controls['user_name'].errors?.['required']">campo
+                            obligatorio</div>
+                    </div>
+                </div>
+    
+                <div class="group col-12 mb-4">
+                    <!-- <label for="tipo_documento" class="form-label">Tipo de Documento</label> -->
+                 <select id="tipo_documento" formControlName="tipo_documento" class="ctom-imput" >   <!-- class="form-select" -->
+                        <option value="" disabled selected>Tipo de Documento</option> 
+                        <option value="CC">Cédula de Ciudadanía</option>
+                        <option value="CE">Cédula de Extranjería</option>
+                        
+                    </select>
+                    <!-- <label for="nombre" class="label"><Noscript></Noscript>Tipo de documento</label> -->
+            
+                    <div class="alert alert-danger"
+                        *ngIf="formRegiUser.controls['tipo_documento'].invalid && formRegiUser.controls['tipo_documento'].touched">
+                        <div *ngIf="formRegiUser.controls['tipo_documento'].errors?.['required']">campo
+                            obligatoio </div>
+                    </div>
+                </div>
+    
+                <div class="  group col-12 mb-4">
+                    <!-- <label for="numero_documento" class="form-label">Numero de Docuemento</label> -->
+                    <input type="text" formControlName="numero_documento" id="numero_documento"
+                        class="ctom-imput" required="" autocomplete="off">
+                    <label for="numero_documento" class="label"><Noscript></Noscript>Numero de Docuemento</label>
+    
+                    <div class="alert alert-danger"
+                        *ngIf="formRegiUser.controls['numero_documento'].invalid && formRegiUser.controls['numero_documento'].touched">
+                        <div *ngIf="formRegiUser.controls['numero_documento'].errors?.['required']">
+                            campo
+                            obligatorio</div>
+                    </div>
+                </div>
+    
+                <div class=" group mb-12 mb-4">
+                    <!-- <label for="number-movil" class="form-label">Numero de celular</label> -->
+                    <input type="text" id="number-movil" formControlName="numero_celular"
+                        class="ctom-imput" required="" autocomplete="off">
+                        <label for="numero_celular" class="label"><Noscript></Noscript>Numero de celular </label>
+    
+                    <div class="alert alert-danger"
+                        *ngIf="formRegiUser.controls['numero_celular'].invalid && formRegiUser.controls['numero_celular'].touched">
+                        <div *ngIf="formRegiUser.controls['numero_celular'].errors?.['required']">campo
+                            obligatorio</div>
+                        <div *ngIf="formRegiUser.controls['numero_celular'].errors?.['pattern']">solo se
+                            aceptan numeros</div>
+                    </div>
+                </div>
+    
+                <div class=" group mb-12 mb-4">
+                    <input type="text" id="email" formControlName="correo_electronico"
+                        class="ctom-imput" required="">
+                        <label for="email" class="label"><Noscript></Noscript>Correro electronico </label>
+    
+                    <div class="alert alert-danger"
+                        *ngIf="formRegiUser.controls['nombre'].invalid && formRegiUser.controls['correo_electronico'].touched">
+                        <div *ngIf="formRegiUser.controls['correo_electronico'].errors?.['required']">
+                            campo
+                            obligatorio </div>
+                    </div>
+                </div>
+    
+                <div class=" group col-6 mb-4">
+                    <input type="password" formControlName="password" id="passwordr"
+                        class="ctom-imput" required="" autocomplete="off">
+                        <label for="passwordr" class="label"><Noscript></Noscript>Contraseña</label>
+    
+    
+                    <div class="alert alert-danger"
+                        *ngIf="formRegiUser.controls['password'].invalid && formRegiUser.controls['password'].touched">
+                        <div *ngIf="formRegiUser.controls['password'].errors?.['required']">campo
+                            obligatorio</div>
+                    </div>
+                </div>
+    
+                <div class=" group col-6 mb-4">
+                    <input type="password" formControlName="vali_password" id="va-password"
+                        class="ctom-imput" required="" >
+                    <label for="password" class="label"><Noscript></Noscript>Validacion contraseña</label>
+    
+                    <div class="alert alert-danger"
+                        *ngIf="formRegiUser.controls['vali_password'].invalid && formRegiUser.controls['vali_password'].touched">
+                        <div *ngIf="formRegiUser.controls['vali_password'].errors?.['required']">campo
+                            obligatorio</div>
+                    </div>
+                </div>
+    
+            </div>
+        </fieldset>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cerrar</button>
+    <button type="submit" form="frmRcursoOne" class="btn btn-success" [disabled]="!formRegiUser.valid">Actualizar </button>
+</div>
+</body>

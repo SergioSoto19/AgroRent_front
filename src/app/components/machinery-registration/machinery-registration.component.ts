@@ -38,8 +38,6 @@ export class MachineryRegistrationComponent {
       //
       precio: ['', [Validators.required, Validators.pattern('^[0-9]+(\.[0-9]+)?$')]]
 
-
-
     });
   }
 
@@ -80,7 +78,7 @@ export class MachineryRegistrationComponent {
     
     this.serviceUser.postRequest(this.model_machinery).subscribe(
       (respuesta: any) => {
-        this.toastr.success(respuesta.mesanje);
+        this.toastr.success(respuesta.mensanje);
       },
       (error) => {
         if (error.status === 504) {

@@ -26,6 +26,8 @@ import { OffersOfferedRentalComponent } from './components/offers-offered-rental
 import { RentalsRequestComponent } from './components/rentals-request/rentals-request.component';
 import { OfferedRentalsComponent } from './components/offered-rentals/offered-rentals.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { ReserveListComponent } from './components/reserve-list/reserve-list.component';
+import { RentListComponent } from './components/rent-list/rent-list.component';
 
 
 @NgModule({
@@ -48,6 +50,8 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     RentalsRequestComponent,
     OfferedRentalsComponent,
     WelcomeComponent,
+    ReserveListComponent,
+    RentListComponent,
     
   ],
 

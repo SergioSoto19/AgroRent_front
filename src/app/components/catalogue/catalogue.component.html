@@ -3,7 +3,7 @@
 
     <div class="content-title ">
         <br>
-        <h3 class="d-flex justify-content-center">Catalogo</h3>
+        <h3 class="d-flex justify-content-center">Catálogo</h3>
         <br>
     </div>
 
@@ -16,10 +16,11 @@
                 <option value="" disabled>filtrar por categoria</option>
                 <option value="todo">Todo</option>
                 <option value="Tractor">Tractores</option>
-                <option value="Cosechadoras">Cosechadoras</option>
+                <option value="Cosechadora">Cosechadoras</option>
+                <option value="Cosechadora de caña">Cosechadoras de caña</option>
                 <option value="Tolva">Tolvas</option>
                 <option value="cargadora de caña">Cargadoras de caña</option>
-                <option value="Cosechadora de caña">Cosechadoras de caña</option>
+                
             </select>
         </div>
 
@@ -48,7 +49,8 @@
                 <div class="card-body px-5">
                     <h5 class="card-title">{{maquinaria.nombre_maquina}}</h5>
 
-                    <p class="card-text"> precio hora: {{maquinaria.precio_hora}}</p>
+                    <p class="card-text"> precio hora: {{formatCurrencyValue(maquinaria.precio_hora)}}</p>
+    
 
                     <div class="d-flex justify-content-between align-items-center">
 

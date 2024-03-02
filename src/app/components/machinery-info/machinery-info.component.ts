@@ -99,19 +99,25 @@ export class MachineryInfoComponent {
     });
   }
 
+  //trae info de reservas
   getInforeserveMachuinary(){
     this.serviceReserver.getRequestfilter(this.maquinariaId).subscribe(data => {
-      console.log('fecha sin formato', data);
+    //  console.log('fecha sin formato', data);
+      const reservasAceptadas = data.filter((reserva: { validacion_reserva: string }) => reserva.validacion_reserva === 'A');
+      // console.log('Reservas Aceptadas', reservasAceptadas);
+
 
         // Transformar los datos a la forma  de solo fecha de inicio y fin 
-        const eventos: any[] = data.map((item: any) => ({
+        const eventos: any[] = reservasAceptadas.map((item: any) => ({
           fecha_hra_inicio: item.fecha_hra_inicio,
           facha_hora_fin: item.facha_hora_fin
         }));
         
          //reservas  formateada solo fechas
-        console.log("fechas formateadas")
-        this.mostrareventosnuevos(eventos);
+        // console.log("fechas formateadas")
+
+         this.mostrareventosnuevos(eventos); // para cargar directamente las fechas creadas
+
     }, error => {
       console.log('ERROR', error);
     });
@@ -135,6 +141,8 @@ mostrareventosnuevos(eventos: any[]){
   this.calendarOptions.events = this.convertirAEventos(eventos);  // se envia directamente los eventos al fulcalendar
     // console.log("evento snuevos: ",this.events);
 }
+
+
 
   createForm() {
     return this.formBuilder.group({
@@ -181,12 +189,13 @@ mostrareventosnuevos(eventos: any[]){
     this.serviceReserver.postRequest(reservation_request).subscribe(
       (respuesta: any) => {
         this.toastr.success(respuesta.mensaje); //se añadio reserva o fecha no disponible 
-        this.getInforeserveMachuinary() //obtengo las nueveas reservas 
-        
-        // Actualiza los eventos directamente en FullCalendar
-        const calendarApi = this.fullCalendar.getApi();
-        calendarApi.removeAllEvents(); // Elimina todos los eventos
-        calendarApi.addEventSource(this.events); // Agrega nuevamente los eventos
+
+      // Actualiza los eventos directamente en FullCalendar
+        // this.getInforeserveMachuinary() //obtengo las nueveas reservas 
+       
+        // const calendarApi = this.fullCalendar.getApi();
+        // calendarApi.removeAllEvents(); // Elimina todos los eventos
+        // calendarApi.addEventSource(this.events); // Agrega nuevamente los eventos
         
  
 

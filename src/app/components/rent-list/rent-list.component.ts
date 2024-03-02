@@ -1,70 +1,53 @@
 import { Component } from '@angular/core';
-import { ReservesService} from 'src/app/services/reserves.service';
-
+import { RentService} from 'src/app/services/rent.service';
 
 @Component({
-  selector: 'app-own-machinery-requests',
-  templateUrl: './own-machinery-requests.component.html',
-  styleUrls: ['./own-machinery-requests.component.scss']
+  selector: 'app-rent-list',
+  templateUrl: './rent-list.component.html',
+  styleUrls: ['./rent-list.component.scss']
 })
-export class OwnMachineryRequestsComponent {
+export class RentListComponent {
+  res: any = []
 
   itemsPerPage = 5
-  res: any = []
   columna = 'codigo'
   ordenamiento = 'asc'
   busqueda = ''
   totalPaginas = 1
   paginaActual = 1
 
-
-
   constructor(
-    private ReserveService: ReservesService,
-
-  ) { }
+    private serviceUser: RentService,
+  ){}
 
   ngOnInit(): void {
-    this.getReserveRequests()
+
+  /////////////////////////////
+//aca se pide los datos
+    this.serviceUser.getRents().subscribe(
+
+      ( respuesta: any) => {
+        console.log(respuesta);
+        this.res = respuesta
+      },
+      (error) => {
+       // this.toastr.error(error.error.mensaje);
+        console.error(error.error.mensaje);
+      }
+    );
   }
 
-
-  getReserveRequests() {
-    const idUser = this.get_localstorage();
-    // const idUser = 34
-   // console.log("id usuario", idUser)
-      this.ReserveService.getRequestfilterUser(idUser).subscribe(data => {
-         this.res= data
-        // console.log("reservas solicitude ", data)
-      }, error => {
-        // this.toastr.error(error.error.mensaje);
-        console.log('ERROR', error);
-      });
-  }
-
-  
-
-  get_localstorage() {
-    let userId = 0
-    const usuarioString = localStorage.getItem('user');
-    if (usuarioString !== null) {
-      const user = JSON.parse(usuarioString);
-      userId = user.id_usuario
-    }
-    return userId
-  }
-
-   // Método para formatear la fecha de  "2023-11-23T09:40"
-   formatFechaHora(fechaHora: string): string {
+  formatFechaHora(fechaHora: string): String {
     const fecha = new Date(fechaHora);
     const dia = fecha.getDate().toString().padStart(2, '0');
     const mes = (fecha.getMonth() + 1).toString().padStart(2, '0');
     const anio = fecha.getFullYear();
+    
+    // Obtén la hora y los minutos en formato de 12 horas
+    const hora12 = fecha.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
   
-    return `${anio}-${mes}-${dia}`;
+    return `${anio}-${mes}-${dia} ${hora12}` ;
   }
-
-  //tabla movi
   cambiarPaginacion(key: string, event: any) {
     if (key == 'mostrar')
       this.itemsPerPage = Number(event)
@@ -85,13 +68,14 @@ export class OwnMachineryRequestsComponent {
 
     console.log("columna es:", this.columna, "ordenamiento es:", this.ordenamiento, "busqueda es ", this.busqueda),
 
-      this.ReserveService. getRequestfilter(1).subscribe(data => {  // tener en cuenta por los paraetro la busqueda 
-        console.log('Data', data);
-      });
+    this.serviceUser.getRents().subscribe( data=> {
+      console.log('Data', data);
+    });
 
     this.contarPaginas()
   }
 
+ 
   contarPaginas() {
     this.totalPaginas = 0
     this.paginaActual = 1
@@ -113,6 +97,5 @@ export class OwnMachineryRequestsComponent {
 
     }
 
-  }
-
+}
 }

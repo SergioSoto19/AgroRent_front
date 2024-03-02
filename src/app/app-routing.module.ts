@@ -16,6 +16,8 @@ import {OffersOfferedRentalComponent } from './components/offers-offered-rental/
 import {RentalsRequestComponent} from './components/rentals-request/rentals-request.component';
 import {OfferedRentalsComponent} from './components/offered-rentals/offered-rentals.component';
 import {WelcomeComponent} from './components/welcome/welcome.component';
+import {ReserveListComponent} from './components/reserve-list/reserve-list.component';
+import {RentListComponent} from './components/rent-list/rent-list.component';
 
 
 
@@ -41,6 +43,7 @@ const routes: Routes = [
       { path: 'MownRentalOffers',component:OffersOfferedRentalComponent},//solicitudes que me llegan 
       { path: 'RentalsRequest',component:RentalsRequestComponent},
       { path: 'OfferedRentals',component:OfferedRentalsComponent},//alquileres que di
+      { path: 'signIn',component:SignInComponent},
     ]
   },
 
@@ -51,7 +54,9 @@ const routes: Routes = [
       { path: 'usuarios', component: UserListComponent },
       { path: 'maquinarias', component: MachineryListComponent },
       { path: 'prueba', component: SidebarAdminComponent },
-      // {path:'registro-maquinaria',component:MachineryRegistrationComponent}
+      { path: 'reservas', component: ReserveListComponent},
+      { path: 'alquileres', component : RentListComponent},
+      { path: 'signIn',component:SignInComponent},
     ]
   },
 

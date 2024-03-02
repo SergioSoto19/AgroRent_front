@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 })
 
 export class LoginComponent {
+  password : String = ""
 
   formRegiUser: FormGroup;
   // modelUser = new User("NOprueba","ApellPrueb","cc","ddd","prueba@","A")
@@ -82,6 +83,9 @@ export class LoginComponent {
       "nofoto1.jpg"
       // "jose1.jpg"
       // "sergio1.jpg"
+      //  "carlos1.jpg"
+      // "camilo1.jpg"
+        
 
     );
     this.addUser()
@@ -142,6 +146,24 @@ export class LoginComponent {
   
   saveLocalStorage(user:any){
     localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  enviarPet(){
+    console.log( this.password)
+    var m = {"nombre_user": this.password}
+    this.serviceLogin.recovery(m).subscribe(
+      (respuesta: any) => {
+        this.toastr.success(respuesta.mensaje);
+      },
+      (error) => {
+        if (error.status === 504) {
+          this.toastr.error('Tiempo de espera agotado, Servidor no ressponde');
+        } else {
+          this.toastr.error(error.error.mensaje);
+        }
+
+      }
+    );
   }
 
   

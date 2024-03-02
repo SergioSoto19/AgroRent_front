@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+// import { Component } from '@angular/core';
 import { MachineryService } from 'src/app/services/machinery.service';
 import { CommunicationServiceService } from 'src/app/services/communication-service.service';
+import { formatCurrency } from '@angular/common';
+import { Component, Inject, LOCALE_ID } from '@angular/core';
 
 @Component({
   selector: 'app-catalogue',
@@ -15,7 +17,8 @@ export class CatalogueComponent {
 
   constructor(
     private serviceUser: MachineryService,
-    private communicationService: CommunicationServiceService
+    private communicationService: CommunicationServiceService,
+      @Inject(LOCALE_ID) private locale: string
   ) {
 
   }
@@ -59,9 +62,12 @@ export class CatalogueComponent {
     }
 
 
-
-
   }
+
+    //da formato a precio
+    formatCurrencyValue(value: number): string {
+      return formatCurrency(value, this.locale, '$', 'COP', '1.3-3');
+    }
 
 
   //comunicacion con el padre dasboar_use mediante servicio

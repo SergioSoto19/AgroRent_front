@@ -1,1 +1,91 @@
-<p>tabla de alquileres que solicitado </p>
+<body>
+    <div class="wrapper">
+        <!-- contenido  -->
+        <div class="main">
+            <div>
+                <div class="contenido de tabla usuarios ">
+                    <!-- <app-progress-bar> </app-progress-bar>  -->
+                    <div class="contenido">
+                        
+                        <div class="content-title ">
+                            <br>
+                            <h3 class="d-flex justify-content-center">Mis Alquileres</h3>
+                            <br>
+                        </div>
+
+                        <div class="row g-3 mt-3 mx-3">
+                            <div class="col-12">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead class="table-success">
+                                            <tr>
+                                                <th scope="col">Id Reserva</th>
+                                                <!-- <th scope="col">Titilo</th> -->
+                                                <th scope="col">Costo_hora</th>
+                                                <th scope="col" >Fecha Limite </th>
+                                                <th scope="col">Estado</th>      
+                                               
+                                            </tr>
+                                        </thead>
+            
+                                        <tbody>
+                                            <!-- <tr *ngFor="let student of res" (click)="selectStudent (student)"> -->
+                                            <tr
+                                                *ngFor="let reserves of res | paginate: {itemsPerPage:itemsPerPage, currentPage:paginaActual}; let i =index">
+                                                
+                                                <!-- <th scope="row">{{estudiante.codigo}}</th> -->
+                                                <td>{{reserves.id_reserva}}</td>
+                    
+                                            
+                                                <td>{{ reserves.costo_hora_alquiler }}</td>              
+                                                <td>{{ formatFechaHora(reserves.fecha_hora_entrega) }}</td>
+                                               
+                                                
+                                                <td>
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            {{ reserves.estado === 'I' ? 'Iniciado' : (reserves.estado === 'F' ? 'Finalizado' : 'Pendiente') }}
+                                                        </div>
+<!-- 
+                                                        <div class="col-6">
+                                                            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" 
+                                                            data-bs-target="#modificar-estudiante">Entregar</button>  
+                                                        </div>
+                                                         -->
+                                                    </div>
+                                                   
+
+                                                    
+                                                </td>  
+
+                                                       <!--  
+                                                <td>
+                                                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" 
+                                                    data-bs-target="#modificar-estudiante">Entregar</button>
+                                                </td>
+                                                <td>
+                                                 <button type="button" class="btn btn-danger" >Cancelar</button> 
+                                                </td>
+                                                -->
+                                            </tr>
+                                        </tbody>
+            
+                                    </table>
+                                </div>
+                            </div>
+            
+                            <div class="col-12">
+                                <div class="pagination">
+                                    <div class="">Pagina {{paginaActual}} de {{totalPaginas}}</div>
+                                    <div class=" "><pagination-controls (pageChange)="paginaActual = $event"
+                                            [responsive]="true"></pagination-controls>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

@@ -24,6 +24,7 @@
                                                 <th scope="col">Imagen</th>
                                                 <th scope="col">Fecha Inicio</th>
                                                 <th scope="col">Fecha Fin</th>
+                                                <th scope="col">Estado</th>
                                                 <th scope="col">Editar</th>
                                                 <th scope="col">Cancelar</th>
                                             </tr>
@@ -46,6 +47,9 @@
                                             
                                                 <td>{{ formatFechaHora(reserves.fecha_hra_inicio) }}</td>          
                                                 <td>{{ formatFechaHora(reserves.facha_hora_fin) }}</td>
+                                                <td>
+                                                {{ reserves.validacion_reserva === 'A' ? 'Aceptada' : (reserves.validacion_reserva === 'R' ? 'Rechazada' : 'Pendiente') }}
+                                                </td>
                                                 <td>
                                                   <button type="button" class="btn btn-primary" data-bs-toggle="modal" 
                                                     data-bs-target="#modificar-estudiante">Editar</button>

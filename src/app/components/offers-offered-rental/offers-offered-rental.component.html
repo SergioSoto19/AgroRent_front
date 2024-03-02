@@ -1,4 +1,3 @@
-
 <body>
     <div class="wrapper">
         <!-- contenido  -->
@@ -27,6 +26,7 @@
                                                 <!-- <th scope="col">Fecha Fin</th> -->
                                                 <th scope="col">Fecha Fin</th>
                                                 <th scope="col">Opción</th>
+                                                
                                             </tr>
                                         </thead>
 
@@ -45,17 +45,33 @@
 
                                                     </div>
                                                 </td>
-
-
+                                             
                                                 <td>{{ formatFechaHora(reserves.fecha_hra_inicio) }}</td>
                                                 <td>{{ formatFechaHora(reserves.facha_hora_fin) }}</td>
-                                               
-                                                
-                                                <td>
 
+                                                <td>
                                                     <div class="row">
                                                         <div class="col">
-                                                            <select id="desecisionReser" [(ngModel)]="reserveOption"
+                                                            <select #desecisionReser class="form-select" aria-label="Default select example" >  
+                                                              <!-- <option value="P" disabled>Seleccionar Estado</option> -->
+                                                              <option value="P" disabled selected>Seleccionar Estado</option>
+                                                              <option value="A">Aceptar</option>
+                                                              <option value="R">Rechazar</option>
+                                                            </select>
+                                                          </div>
+                                                        
+
+                                                          <div class="col">
+                                                            <button type="button"
+                                                                    class="btn btn-outline-success"  
+                                                                    data-bs-target="#exampleModal" data-bs-toggle="modal"
+                                                                    (click)="enviarDecision(desecisionReser.value, reserves.id_reserva,reserves.facha_hora_fin, reserves.id_maquinaria)"
+                                                                    >Enviar Decision</button>
+                                                        </div>
+
+                                                              <!--   // version con bug 
+                                                        <div class="col">       //selec mismo comportamiento devido  reserveOption" 
+                                                            <select id="desecisionReser" [(ngModel)]="reserveOption"   //cabia  p reserveOption
                                                                 class="form-select" aria-label="Default select example">
                                                                 <option value="P" disabled>Selecionar Estado</option>
                                                                 <option value="A">Aceptar</option>
@@ -63,14 +79,24 @@
                                                             </select>
                                                         </div>
 
-                                                        <div class="col">
-                                                            
+                                                           <div class="col">
                                                             <button type="button" class="btn btn-outline-success"
-                                                                data-bs-target="#exampleModal"
-                                                                data-bs-toggle="modal"
-                                                                [disabled]="reserveOption === 'P'">Enviar</button>  <!-- se desebilita boton si es 'P' osea si no a selccionado --> 
-                                                              
-                                                        </div>
+                                                                data-bs-target="#exampleModal" data-bs-toggle="modal"
+                                                                [disabled]="reserveOption === 'P'">Enviar</button>
+                                                    
+                                                            </div>
+                                                        
+                                                        -->
+
+                                               
+                                                        
+                                                        
+                                                     
+
+
+
+
+
 
                                                         <!-- Modal -->
                                                         <div class="modal fade" id="exampleModal" tabindex="-1"
@@ -85,20 +111,22 @@
                                                                             aria-label="Close"></button>
                                                                     </div>
                                                                     <div class="modal-body">
-                                                                        Estas seguro de realizar esta acción 
+                                                                        Estas seguro de realizar esta acción
                                                                     </div>
                                                                     <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                                                        <button type="button"
-                                                                            class="btn btn-primary"   (click)="updateReservationStatus(reserves.id_reserva, reserveOption)" data-bs-dismiss="modal" >aceptar changes</button>
+                                                                        <button type="button" class="btn btn-secondary"
+                                                                            data-bs-dismiss="modal">Cancelar</button>
+                                                                        <button type="button" class="btn btn-primary"
+                                                                            (click)="updateReservationStatus()"
+                                                                            data-bs-dismiss="modal">aceptar</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div>                            
 
 
 
-                                                       
+
 
 
 
@@ -126,10 +154,4 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
 </body>

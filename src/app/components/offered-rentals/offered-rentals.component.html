@@ -1,1 +1,128 @@
-<p>ofertas que doy para alquilar alquilres que preste </p>
+<body>
+    <div class="wrapper">
+        <!-- contenido  -->
+        <div class="main">
+            <div>
+                <div class="contenido de tabla usuarios ">
+                    <!-- <app-progress-bar> </app-progress-bar>  -->
+                    <div class="contenido">
+
+                        <div class="content-title ">
+                            <br>
+                            <h3 class="d-flex justify-content-center"> Ofertas de Alquiler</h3>
+                            <br>
+                        </div>
+
+                        <div class="row g-3 mt-3 mx-3">
+                            <div class="col-12">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead class="table-success">
+                                            <tr>
+                                                <th scope="col">id alquiler</th>
+                                                <!-- <th scope="col">Titilo</th> -->
+                                                <th scope="col">Imagen</th>
+                                                <th scope="col">Fecha Inicio</th>
+                                                <th scope="col">Hora de Inicio</th>
+                                                <th scope="col">Fecha de Entrega</th>
+                                                <th scope="col">Hora de Entrega</th>
+                                                <th scope="col">Opción</th>
+                                                
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <!-- <tr *ngFor="let student of res" (click)="selectStudent (student)"> -->
+                                            <tr
+                                                *ngFor="let reserves of res | paginate: {itemsPerPage:itemsPerPage, currentPage:paginaActual}; let i =index">
+
+                                                <!-- <th scope="row">{{estudiante.codigo}}</th> -->
+                                                <td>{{reserves.id_reserva}}</td>
+                                                <td>
+                                                    <div class="image-cropper">
+                                                        <img [src]="reserves.path ? '/assets/image/Ima pruega de registros/Maquinarias/'+ reserves.path[0] : 
+                                                        '/assets/image/no foto1.jpg'" alt="{{reserves.nombre_maquina}}"
+                                                            width="50" height="50">
+
+                                                    </div>
+                                                </td>
+                                             
+                                                <!-- <td>{{ formatFechaHora(reserves.fecha_hra_inicio) }}</td> -->
+                                                <!-- <td>{{ formatFechaHora(reserves.facha_hora_fin) }}</td> -->
+
+                                                <td>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <select #desecisionReser class="form-select" aria-label="Default select example" >  
+                                                              <!-- <option value="P" disabled>Seleccionar Estado</option> -->
+                                                              <option value="P" disabled selected>Seleccionar Estado</option>
+                                                              <option value="A">Aceptar</option>
+                                                              <option value="R">Rechazar</option>
+                                                            </select>
+                                                          </div>
+                                                        
+
+                                                          <div class="col">
+                                                            <button type="button"
+                                                                    class="btn btn-outline-success"  
+                                                                    data-bs-target="#exampleModal" data-bs-toggle="modal"
+                                                                    (click)="enviarDecision(desecisionReser.value, reserves.id_reserva,reserves.facha_hora_fin, reserves.id_maquinaria)"
+                                                                    >Enviar Decision</button>
+                                                        </div>
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="exampleModal" tabindex="-1"
+                                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h1 class="modal-title fs-5"
+                                                                            id="exampleModalLabel">Verificación</h1>
+                                                                        <button type="button" class="btn-close"
+                                                                            data-bs-dismiss="modal"
+                                                                            aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        Estas seguro de realizar esta acción
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary"
+                                                                            data-bs-dismiss="modal">Cancelar</button>
+                                                                        <button type="button" class="btn btn-primary"
+                                                                           
+                                                                            data-bs-dismiss="modal">aceptar</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>                            
+
+
+
+
+
+
+
+                                                    </div>
+
+                                                </td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="pagination">
+                                    <div class="">Pagina {{paginaActual}} de {{totalPaginas}}</div>
+                                    <div class=" "><pagination-controls (pageChange)="paginaActual = $event"
+                                            [responsive]="true"></pagination-controls>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

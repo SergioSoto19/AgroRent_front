@@ -34,5 +34,12 @@ export class LoginService {
     return this.http.post<any>('/api/login',body,{'headers':headers}); 
   }
 
+  recovery(body:any):Observable<any>{
+    let headers = new HttpHeaders({
+      'content-type': 'application/json',
+    })
+    return this.http.post('api/recovery', body, { 'headers': headers });
+  }
+
   
 }

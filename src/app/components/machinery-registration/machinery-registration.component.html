@@ -31,46 +31,45 @@
 
       <div class="group col-4 m-4">
 
-     
-          <input type="text" formControlName="nombreMaquina" class="ctom-imput" id="nombre" required="" autocomplete="off">
-          <label for="nombre"> Nombre (titulo de maquina)</label>
 
-           
-          <div class="alert alert-danger"
-            *ngIf="formRegiMachy.controls['nombreMaquina'].invalid && formRegiMachy.controls['nombreMaquina'].touched">
-            <div *ngIf="formRegiMachy.controls['nombreMaquina'].errors?.['required']">El nombre es obligatoio </div>
-            <div *ngIf="formRegiMachy.controls['nombreMaquina'].errors?.['pattern']">No seaceptan numeros</div>
-          </div>
-        
-        
-          
-  
+        <input type="text" formControlName="nombreMaquina" class="ctom-imput" id="nombre" required=""
+          autocomplete="off">
+        <label for="nombre"> Nombre (titulo de maquina)</label>
 
-      <div class="row mt-3">
-        <div class="group col">
-        <textarea class="ctom-textarea" formControlName="descripcion" id="descripcion" rows="3"></textarea>
-        <label for="nombre"> descripcion</label>
 
         <div class="alert alert-danger"
-          *ngIf="formRegiMachy.controls['descripcion'].invalid && formRegiMachy.controls['descripcion'].touched ">
-          <div *ngIf="formRegiMachy.controls['descripcion'].errors?.['required']">la descripcion es obligatoio </div>
+          *ngIf="formRegiMachy.controls['nombreMaquina'].invalid && formRegiMachy.controls['nombreMaquina'].touched">
+          <div *ngIf="formRegiMachy.controls['nombreMaquina'].errors?.['required']">El nombre es obligatoio </div>
+          <div *ngIf="formRegiMachy.controls['nombreMaquina'].errors?.['pattern']">No seaceptan numeros</div>
         </div>
 
-        </div>
-      </div>
 
-       
         <div class="row mt-3">
           <div class="group col">
-            <input type="text"  class="ctom-imput" required="" id="placa" autocomplete="off">
+            <textarea class="ctom-textarea" formControlName="descripcion" id="descripcion" rows="3"></textarea>
+            <label for="nombre"> descripcion</label>
+
+            <div class="alert alert-danger"
+              *ngIf="formRegiMachy.controls['descripcion'].invalid && formRegiMachy.controls['descripcion'].touched ">
+              <div *ngIf="formRegiMachy.controls['descripcion'].errors?.['required']">la descripcion es obligatoio
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="row mt-3">
+          <div class="group col">
+            <input type="text" class="ctom-imput" required="" id="placa" autocomplete="off">
             <label for="placa"> Placa maquina (opcional) </label>
           </div>
         </div>
       </div>
- 
+
 
       <div class="group col-6 mx-3">
-        <input type="text"  class="ctom-imput" required="" id="model" autocomplete="off">
+        <input type="text" class="ctom-imput" required="" id="model" autocomplete="off">
         <label for="modelo"> Modelo de Maquina (opcional) </label>
       </div>
 
@@ -79,27 +78,26 @@
         <select id="categoria" formControlName="categoria" class="ctom-imput">
           <option value="" disabled>categoria</option>
           <option value="Tractor">Tractores</option>
-          <option value="Cosechadora">Cosechadoras</option>
+          <option value="Cosechadora">Cosechadora</option>
+          <option value="Cosechadora de caña">Cosechadoras de caña</option>
           <option value="Tolva">Tolvas</option>
           <option value="cargadora de caña">Cargadoras de caña</option>
-          <option value="Cosechadora de caña">Cosechadoras de caña</option>
+         
         </select>
 
-         <div class="alert alert-danger"
-            *ngIf="formRegiMachy.controls['categoria'].invalid && formRegiMachy.controls['categoria'].touched">
-            <div *ngIf="formRegiMachy.controls['categoria'].errors?.['required']">campo
-                obligatoio </div>
-              
+        <div class="alert alert-danger"
+          *ngIf="formRegiMachy.controls['categoria'].invalid && formRegiMachy.controls['categoria'].touched">
+          <div *ngIf="formRegiMachy.controls['categoria'].errors?.['required']">campo
+            obligatoio </div>
+        </div>
 
-        </div> 
-      </div> 
+      </div>
 
 
 
       <div class="group col-6 mx-3">
 
-        <input type="text" formControlName="precio" class="ctom-imput" required="" id="precio"
-          autocomplete="off">
+        <input type="text" formControlName="precio" class="ctom-imput" required="" id="precio" autocomplete="off">
         <label for="precio"> Precio por hora </label>
 
         <div class="alert alert-danger"
@@ -111,7 +109,7 @@
         </div>
 
       </div>
-       
+
 
     </form>
     <div class="m-3">
@@ -124,8 +122,8 @@
       <button type="submit" form="frmRcursoOne" class="btn btn-success"
         [disabled]="!formRegiMachy.valid">Registrate</button>
     </div>
-    <br>  <!-- mala prac-->
-  
+    <br> <!-- mala prac-->
+
 
   </div>
 

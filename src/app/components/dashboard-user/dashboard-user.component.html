@@ -116,11 +116,12 @@
 
                             <div class="dropdown-menu dropdown-menu-end">
 
-                                <a href="/prueba" class="dropdown-item">
+                                <a  class="dropdown-item">
                                     ¡Hola, {{ getUser().nombre_usuario}} {{ getUser().apellido_usuario}}!
                                 </a>
-                                <a routerLink="registro-maquinaria" class="dropdown-item"> <i
+                                <a routerLink="signIn" class="dropdown-item"> <i
                                         class="fa-solid fa-gear pe-2"></i>configuraciones</a>
+
                                 <a routerLink="/login" class="dropdown-item" (click)="Sign_off()"> <i
                                         class="fa-solid fa-right-from-bracket pe-2"></i>cerrar sesión</a>
                             </div>

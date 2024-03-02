@@ -29,7 +29,7 @@
                         </div>
 
                         <div class="signin">
-                            <span> <a routerLink="/login">¿olvidaste tu contraseña? </a></span><br> <br>
+                            <span data-bs-toggle="modal" data-bs-target="#recuperar_contraseña"> <a>¿olvidaste tu contraseña? </a></span><br> <br>
                             <!-- <span>¿No tienes una cuenta?  <a routerLink="/signIn">Registrate </a></span> -->
                             <span>¿No tienes una cuenta? <a href="#" data-bs-toggle="modal"
                                     data-bs-target="#registrar-usuario">Regístrate</a></span>
@@ -220,6 +220,41 @@
                     <button type="submit" form="frmRcursoOne" class="btn btn-success" [disabled]="!formRegiUser.valid">Registrate </button>
                 </div>
             </div>
+        </div>
+    </div>
+
+
+    <!-- Modal recuperar contraseña --> 
+    <div class="modal fade" id="recuperar_contraseña" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">¿Te olvidaste tu contraseña?</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body"> 
+                <div class="row">
+                    <div class="col-12">
+                        <h2></h2>
+                        <p> ¡No te preocupes! Escribe tu nombre de usuario o tu correo electronico
+                            registrado y te enviaremos un email con tu credenciales de acceso
+                        </p>
+                        <br>
+                    </div>
+                    <div class="col-12">
+                        <div class="  group col-12 mb-4">
+                            <input type="text" [(ngModel)]="password" id="user_namer" class="ctom-imput"
+                                required="" autocomplete="off">
+                                <label for="nombre" class="label"><Noscript></Noscript>Nombre de usuario o correo</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cerrar</button>
+                <button type="button" (click)="enviarPet()" class="btn btn-success" >Recuperar</button>
+            </div>
+        </div>
         </div>
     </div>
 

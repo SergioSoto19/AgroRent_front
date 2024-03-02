@@ -20,6 +20,7 @@
                                     [class.active]="i === 0"></button>
                             </div>
 
+                            
                             <div class="carousel-inner" style="background-color: rgb(255, 255, 255); width: 100%;  ">
                                 <div class="carousel-item" *ngFor="let imagePath of maquinaria.path; let first = first"
                                     [class.active]="first">
@@ -44,17 +45,28 @@
                 </div>
 
 
-                <div class="col-md-6 order-md-2">
+                <div class="col-md-6 order-md-2 p-5  " >
 
 
-                    <H2>{{ maquinaria.nombre_maquina}}</H2>
-                    <p class="lead">{{ maquinaria.descripcion_maquina }}</p>
-                    <p class="lead precio">{{ maquinaria.precio_hora | currency:'$':'symbol':'1.0-0' }}</p>
+                    <div class="text-center">
+                        <h2 class="mb-4">{{ maquinaria.nombre_maquina }}</h2>
+                    </div>
+                    <p class="lead px-5">{{ maquinaria.descripcion_maquina }}</p>
+
+                   
+                    <p class="lead precio px-5">{{ maquinaria.precio_hora | currency:'$':'symbol':'1.0-0' }}</p>
+                    <!-- <p class="lead precio px-5">{{  formatCurrencyValue(maquinaria.precio_hora)| currency:'$':'symbol':'1.0-0' }}</p> -->
+
                     <p class="lead" *ngIf="maquinaria.modelo_maquina">{{ maquinaria.modelo_maquina }}</p>
                     <!--muestra si no esta vacio -->
 
                     <div class="d-grid grap-3 col-10 mx-auto ">
-                        <button type="button" class="btn btn-primary">Reservar</button>
+                        <button type="button" class="btn btn-primary"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+                        
+                        
+                        Reservar</button>
                         <!--(click)="selectStudent(estudiante);" -->
                     </div>
                 </div>
@@ -67,10 +79,11 @@
                             <full-calendar [options]="calendarOptions"></full-calendar>
                         </div>
                         <div class=" col-3 ">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">
-                                Reservassr
-                            </button>
+
+
+                          
+
+
                         </div>
                     </div>
                 </div>
@@ -97,27 +110,7 @@
                 <div class="modal-body">
                     <form [formGroup]="formCalendar" (submit)="enviarformlario()" id="frmCalendar">
                         <!--id necesario para bton de reservar -->
-                        <div class="row">
-
-                            <!-- <div class="col-12 p-3"> 
-                                <select class="form-select form-select-lg mb-3 " formControlName="municipio"
-                                    aria-label="Default select example">
-                                    <option value="" disabled selected>departamento de destino</option>
-                                    <option value="Boyaca">Boyaca</option>
-                                    <option value="doss">Two</option>
-                                    <option value="tress">Three</option>
-                                </select>
-                            </div>
-
-                            <div class="col-12 p-3">
-                                <select class="form-select" formControlName="departamento"
-                                    aria-label="Default select example">
-                                    <option value="" disabled selected>Municiopio de destino</option>
-                                    <option value="Toca">Toca</option>
-                                    <option value="dos">Two</option>
-                                    <option value="tres">Three</option>
-                                </select>
-                            </div>-->
+                        <div class="row">  
 
                             <div class="col-12 p-3">
                                 <label for="start_date" class="form-label">Fecha de inicio</label>
@@ -130,16 +123,12 @@
 
                         </div>
                     </form>
-
-                    {{formCalendar.status}}
-
-
-
+                    <!-- {{formCalendar.status}} -->
                 </div>
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" form="frmCalendar"
+                    <button type="submit" class="btn btn-primary" form="frmCalendar" 
                         [disabled]="!formCalendar.valid">reservar</button>
                 </div>
             </div>

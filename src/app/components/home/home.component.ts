@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { InfoUserSessionService  } from 'src/app/services/info-user-session.service';
+import {CommunicationServiceService } from 'src/app/services/communication-service.service';
 
 @Component({
   selector: 'app-home',
@@ -6,8 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  private user: any;
 
-  constructor() { }
+  constructor(
+    private serviceInfoSessionUser: InfoUserSessionService,
+    private communicationService: CommunicationServiceService
+  ) { }
 
   ngOnInit(): void {
 
@@ -23,8 +29,42 @@ export class HomeComponent {
         }
       });
     }
+    this.get_localstorage() 
+    
+    console.log ("indo de usuario: ", this.user)
+
+    console.log("entra")
+
+    this.communicationService.detallesClicked$.subscribe((id) => {
+      // Realiza las acciones necesarias con el ID recibido, por ejemplo, cargar machinery-info/:id
+      /* console.log(`Se hizo clic en Detalles. ID: ${id}`);
+        console.log('MachineryInfoComponent cargado.');*/
+    });
     
   }
+  enviarInfoUser(){
+    console.log("se envio");
+    this.serviceInfoSessionUser.setinfo(this.user)
+  }
 
+
+  Sign_off(){
+   console.log("salir")
+   localStorage.removeItem('user');
+    
+   
+  }
+
+  get_localstorage(){
+    const usuarioString = localStorage.getItem('user');
+    if (usuarioString !== null) {
+      this.user = JSON.parse(usuarioString);
+    }
+  }
+ 
+
+  getUser(){
+    return this.user
+  }
 
 }

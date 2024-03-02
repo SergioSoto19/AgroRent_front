@@ -1,19 +1,17 @@
 <body>
-
-
-
     <div class="wrapper">
-        <div>
+        <!-- contenido  -->
+        <div class="main">
             <div>
                 <div class="contenido de tabla usuarios ">
                     <!-- <app-progress-bar> </app-progress-bar>  -->
                     <div class="contenido">
+                        
                         <div class="content-title ">
                             <br>
-                            <h3 class="d-flex justify-content-center">Usuarios</h3>
+                            <h3 class="d-flex justify-content-center">Alquileres</h3>
                             <br>
                         </div>
-
 
                         <div class="row g-3 mt-3 mx-3">
                             <!--
@@ -87,69 +85,54 @@
                                     <table class="table table-hover">
                                         <thead class="table-success">
                                             <tr>
-                                                <th scope="col">Imagen</th>
-                                                <th scope="col">Tipo de documento</th>
-                                                <th scope="col">Numero de documeto</th>
-                                                <th scope="col">Nombre</th>
-                                                <th scope="col">Apellido</th>
-                                                <th scope="col">Username</th>
-                                                <th scope="col">Numero de celular</th>
-                                                <th scope="col">Correo electronico</th>
-                                                <th scope="col">tipo de usuario</th>
+                                                <th scope="col">Id alquiler</th>
+                                                <th scope="col">Costo hora</th>
+                                                <th scope="col">Fecha y hora entrega</th>
+                                                <!-- <th scope="col">dueño</th> -->
+                                                <!-- <th scope="col">descripcion</th> -->
+                                                <th scope="col">Costo total</th>
                                                 <th scope="col">Estado</th>
-
                                                 <th scope="col">Editar</th>
                                                 <th scope="col">Inabilitar</th>
                                             </tr>
                                         </thead>
-
+            
                                         <tbody>
                                             <!-- <tr *ngFor="let student of res" (click)="selectStudent (student)"> -->
                                             <tr
                                                 *ngFor="let estudiante of res | paginate: {itemsPerPage:itemsPerPage, currentPage:paginaActual}; let i =index">
-
+                                                
                                                 <!-- <th scope="row">{{estudiante.codigo}}</th> -->
-
-                                                <td>
-                     
-
-                                                    <div class="image-cropper">
-                                                        
-                                                        <img [src]="estudiante.path ? '/assets/image/Ima pruega de registros/usuarios/'+ estudiante.path : 
-                                                        '/assets/image/no foto1.jpg'" alt="{{estudiante.nombre_maquina}}"  width="50" height="50">
-
-                                                    </div>
-
-
-
-                                                </td>
-                                            
-                            
-                                                <td>{{estudiante.tipo_documento}}</td>
-                                                <td>{{estudiante.documento_usuario}}</td>
-                                                <td>{{estudiante.nombre_usuario}}</td>
-                                                <td>{{estudiante.apellido_usuario}}</td>
-                                                <td>{{estudiante.nombre_user}}</td>
-                                                <td>{{estudiante. numero_celu_usuario}}</td>
-                                                <td>{{estudiante.correo_usuario}}</td>
-                                                <td>{{estudiante.tipo_usuario}}</td>
-                                                <td>{{estudiante.estado_usuario}}</td>
+                                                <td>{{estudiante.id_alquiler}}</td>
+                                                
+                                                <td>{{estudiante.costo_hora_alquiler}}</td>
+                                               
+                                                <td>{{formatFechaHora(estudiante.fecha_hora_entrega)}}</td>
+                                                <!-- <td>{{estudiante.id_usuario}}</td> -->
+                                                <!-- <td>{{estudiante.descripcion_maquina}}</td> -->
+                                                <td>{{estudiante.costo_total_alquiler}}</td>
 
 
                                                 <td>
-                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                        data-bs-target="#modificar-estudiante">Editar</button>
+                                                    {{ estudiante.estado=== 'I' ? 'Iniciado' : (estudiante.estado === 'F' ? 'Finalizado' : 'Pendiente') }}
+                                                    </td>
+                                           
+                                                
+
+                                                <td>
+                                                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" 
+                                                    data-bs-target="#modificar-estudiante">Editar</button>
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-danger">Inabilitar</button>
+                                                 <button type="button" class="btn btn-danger" >Inabilitar</button> 
                                                 </td>
                                             </tr>
                                         </tbody>
-
+            
                                     </table>
                                 </div>
                             </div>
-
+            
                             <div class="col-12">
                                 <div class="pagination">
                                     <div class="">Pagina {{paginaActual}} de {{totalPaginas}}</div>
